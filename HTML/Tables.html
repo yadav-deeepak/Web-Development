@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+</head>
+<body>
+    <!--Tables are used to represent real life table data-->
+    <table>
+        <caption>Table Caption</caption>
+        <tr>
+            <th>Header1</th>
+            <th>Header2</th>
+        </tr>
+        <tr>
+            <td>Data1</td>
+            <td>Data2</td>
+        </tr>
+    </table>
+
+    <!--
+        <tr> used to display table row
+        <td> used to display table data
+        <th> used to display table header
+    -->
+    <br>
+
+
+
+    <table border="black">
+        <caption>Food Menu</caption>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Frooti</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Samosa</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>Chips</td>
+                <td>20</td>
+            </tr>
+
+        </tbody>
+       
+    </table>
+
+    <!--Semantics in tables in html
+    <thead> to wrap the table header
+    <tbody> to wrap table body
+    <tfoot> to wrap table footer
+    -->
+    <hr>
+
+    <!--
+        Colspan & Rowspan attributes are used to create cells which spans over multiple rows or coloumns
+    -->
+    <table border="BLACK">
+        <tr>
+            <th rowspan="2">Item</th>
+            <th colspan="2">Price</th>
+            
+        </tr>
+        <tr>
+            <th>INR</th>
+            <th>USD</th>
+        </tr>
+        <tr>
+            <td>Frooti</td>
+            <td>10</td>
+            <td>0.14</td>
+        </tr>
+        <tr>
+            <td>Samosa</td>
+            <td>12</td>
+            <td>0.12</td>
+        </tr>
+    </table>
+
+</body>
+</html>
