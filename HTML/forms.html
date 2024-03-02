@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <!--Forms are used to collect data from the user-->
+
+    <!--Action attribute is used to define what action needs to be performed when a form is submitted or where the form data should be sent-->
+
+    <!--Input is used to create multiple form controls. There are multiple types of input that can be created using type attribute-->
+
+    <!--Label element represents a caption for an item in a user interface-->
+    <form action="/action">
+
+        <!--Types of input-->
+         <label>
+            Username <input type="text" placeholder="Enter Username">
+        </label>
+        <br>
+        <label>
+            Password <input type="password" placeholder="Enter Password">
+        </label>
+        <br>
+        <label>
+            Number <input type="number">
+        </label>
+        <br>
+        <label>
+            Time <input type="time">
+        </label>
+        <br>
+        <label>
+            Color <input type="color">
+        </label><br>
+        <label>
+            <input type="checkbox">I am 18+
+        </label>
+
+        <!-- We are able to group them because all of them have same name ="fruit" so when we select only one of them will be selected similarly we can group checkbox also-->
+        <div>
+            <input type="radio" name="fruit" id="apple" value="apple">
+            <label for="apple">apple</label>
+            <input type="radio" name="fruit" id="mango" value="mango">
+            <label for="mango">mango</label>
+        </div>
+        <br>
+        <!--Dropdown are created using select element
+        we can use selected attribute to keep that option already selected-->
+        <select name="profession" id="profession">
+            <option value="student">Student</option>
+            <option value="dev" selected>  Developer</option>
+        </select>
+        <br>
+        <!--Range-->
+        <label for="volume">Volume</label>
+        <input type="range" min="0" max="100" name="vol">
+        <br>
+        <!--Text area used to take text as input-->
+        <label for="feedback">Please provide your valuable feedback:</label>
+        <textarea id="feedback" rows="5" cols="100"></textarea>
+        <br>
+        <!--Types of button-->
+        <button type="submit">Submit</button>
+        <button type="button">Button</button>
+        <button type="reset">Reset</button>
+        <br>
+        <hr>
+
+        <!--Label classical approach
+        we will use for attribute in label tag and id attribute in input to establish the connection btw label and input-->
+
+
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" placeholder="Enter name">
+        <br>
+        <hr>
+
+
+        <!--Name of the form control. Submitted with the form as part of a name/value pair-->
+
+
+        <label for="name"> Username:</label>
+        <input type="text" id="username" placeholder="Enter name" name="username">
+        <br>
+        
+        <label for="password"> Password:</label>
+        <input type="password" id="password" placeholder="Enter password" name="password">
+        <br>
+        <button type="submit">Submit</button>
+
+    </form>
+
+</body>
+</html>

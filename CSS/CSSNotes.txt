@@ -1,0 +1,46 @@
+# CSS STANDS FOR CASCADING STYLE SHEET it is used to add style to the webpage.
+
+# Basic format of css
+selector{
+    property: value;
+}
+
+# How to include styles?
+. Inline styles
+  writing the style directly inline on each element
+  <h1 style="color: red">Hello World </h1>
+
+. Using <style>tag
+  Style is added using the <style>element in the same document
+   <style>
+      h1{
+        color:red;
+      }
+    </style>
+
+. External Stylesheet
+  Writing CSS in a separate document and linking it with HTML file.
+  We will use <link> tag to link the css file in <head> tag.
+  <head>
+      <link rel="stylesheet" ref="style.css">
+  </head>
+
+# Properties
+1. color property
+   Used to set the color of foreground
+   color: purple;
+
+2. background color property
+   used to set the color of background.
+   background-color: red;   
+
+   # Color Systems
+   a. Named colors
+      Each browser recognizes around 140 named colors.
+      Eg- red,blue,black,pink etc
+   b. RGB 
+      Red  Green Blue (0-255)
+      Eg-rgb(255,0,0)
+   c. Hexadecimal or Hex
+      color=#FFFFFF ;
+      LETTERS:0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
