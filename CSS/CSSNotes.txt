@@ -44,3 +44,102 @@ selector{
    c. Hexadecimal or Hex
       color=#FFFFFF ;
       LETTERS:0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
+
+3. Text Properties
+   text-align 
+   ->This property is used to align the text right left center justify according to the parent.
+   Eg:text-align:center; //align the text in center
+
+   font-weight\
+   ->It is used to define how much light and dark the text should look.It has value from 100 to 900.
+   Eg:font-weight: normal; //400
+      font-weight: bold;  //700
+      font-weight: bolder;
+      font-weight: lighter;
+
+   text--decoration
+   ->It sets the appearance of decorative lines on the text like underline.
+   Eg: text_decoration: underline;
+   text_decoration: overline;
+   text_decoration: line-through;
+
+   line-height
+   ->controls the height of the line of text
+   Eg: line-height:normal;
+   line-height:2.5; //2.5*normal
+
+   letter-spacing
+   ->controls the horizontal spacing behaivour between text characters
+   Eg: letter-spacing:normal;
+   letter-spacing: 10px;
+
+   font-size
+   ->font size is used to set the size of the text.
+   Eg:font-size: value;
+   //FONT SIZE UNITS IN CSS
+   ABSOLUTE   |    RELATIVE
+      px      |      %
+      pt      |      em
+      pc      |     rem
+      cm      |      ch
+      mm      |      vh
+      in      |     vw + manymore
+   
+   # Pixels(px)
+     most commonly used absolute unit.
+     96px=1inch
+     not suitable for responsive websites
+     font-size:50px;
+   
+   font-family //use cssfontstack.com
+   ->specifies a prioritized list of one or more font famiy names
+   Eg: font-family:avant garde,didot,sans-serif; //last ones are backup family fonts.
+
+# Selectors in CSS
+  1. UniversaL Selector (*)
+  -> To select everything in a document
+   *{
+      property:value;
+   }
+
+  2. Element Selector 
+  -> selects all elements of the same type.
+   h1{             //h1 is the selected element
+      property: value;
+   }
+  
+   3. Id selector
+  -> selects an element based on the value of the elemnt's id attribute.
+  #idname{
+   property:value;
+  }
+
+  4.Class Selector
+  -> Selects an element based on their class attribute.
+  .className{
+   property: value;
+  }
+
+  5.Descendent Selector 
+  -> Selects all paragraphs inside divs.
+  div p{          //p inside div has been selected
+   property: value;
+  }
+
+  6. Adjacent sibling combinator
+ -> Eg: h3 that comes immediately after any paragraph.
+  p + h3{
+   property:value;
+  }
+
+  7.Child combinator
+  -> Eg: Selects all buttons which are direct children of spans.We can go only one level deep to select the element.
+  span>button{
+   property:value;
+  }
+
+  8.Attribute Selector
+ -> Selects element based on the presence or value of a given attribute.
+ input[attr="value"]{       //select the input whose attr="value"//
+   property: value;
+ }
