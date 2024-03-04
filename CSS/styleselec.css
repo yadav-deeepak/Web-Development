@@ -37,3 +37,30 @@ input[type="text"]{
 input[type="password"]{
     color: green;
 }
+button:hover{
+    background-color: black;
+    color: white;
+}
+h3:hover{
+    text-decoration: none;
+}
+button:active{
+    background-color: darkmagenta;
+    color: black;
+}
+p:active{
+    font-weight: bold;
+    color: green;
+}
+div:nth-of-type(2){
+    background-color: rgb(15, 128, 90);
+}
+h1::first-letter{
+    color: green;
+}
+p::first-line{
+    color: purple;
+}
+p::selection{
+    background-color: yellow;
+}

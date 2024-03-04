@@ -1,5 +1,14 @@
 # CSS STANDS FOR CASCADING STYLE SHEET it is used to add style to the webpage.
 
+# What is cascade in CSS?
+-> The CSS cascade algo job is to select CSS declarations in order to determine the correct values for CSS properties.
+Eg: h2{
+   background-color:yellow;
+}
+h2{
+   background-color: blue; //final color is blue
+}
+
 # Basic format of css
 selector{
     property: value;
@@ -143,3 +152,132 @@ selector{
  input[attr="value"]{       //select the input whose attr="value"//
    property: value;
  }
+
+  9.Psudo Class
+  -> A keyword added to a selector that specifies a special state of the selected elements.
+  syntax: element : pseudoclass
+
+  :hover -when we take mouse cursor on the element then that element is in hover state.
+
+  :active -when we click on the button then is is in active state.
+
+  :checked - used for radio and checkbox buttons
+
+  :nth-of-type -it helps in selecting the nth element.
+
+  10. Pseudo Elements 
+  -> A keyword added to a selector that lets you style a specific part of the selected elements.
+
+  ::first-letter ->use to change the styling of first letter of the selected element.
+
+  ::first-line ->used to change the style of the first line of the selected element.
+
+  ::selection ->use to change the style of the element when we select the element on the webpage. 
+
+# Selector Specificity
+-> Specificity is an algo that calculates the weight that is applied to a given CSS declaration.
+id > class,attribute&pseudo-class > element&pseudo-element
+Eg: h2{
+   background-color: black;
+}
+0(id) 0(class,attribute&pseudo-class) 1(element&pseudo-element)
+-> so it's weight is 001=1
+
+.myClass:hover{
+   color: blue;
+}
+0(id) 2(class,attribute&pseudo-class) 0(element&pseudo-element)
+-> so it's weight is 020=20
+//Specificity means jitna specificly aap element ko target krke uski css change krte h utna hi uske apply hone ke chance badhh jaate h.
+id>class>element
+//When specificity is same the we look for cascading.
+
+#Inline Specificity
+-> Inline styles are more specific than id.
+inline  id  class,attribute&pseudo-class  element&pseudo-element
+
+# !important
+-> To show the most specific thing in document.
+Eg: h2{
+   background-color: blue !important;//when we write important then this property on h2 can't be changed in future. It will become the most imp 
+}
+
+# Inheritance in CSS
+-> Inheritance work levelwise.
+Childs elements inherit the properties of there parent element.
+Some elements such as buttons and input are not able to inherit the parent property.
+Some of the properties value can't be inherited.
+//To make them inherit we use
+input{
+   background-color: inherit; //it will inherit the bgcolor of the parent element
+}
+
+ /// INTERMEDIATE CSS //
+ # Box Model
+ -> In webpage all the elements are stored inside the box .
+
+  1. Height
+  -> By default it sets the content area height of the element.
+  Eg: div{
+    height: 100px;
+   }
+
+  2. Width
+  -> By default it sets the content area width of the element 
+  Eg: div{
+     width: 300px;
+  }
+
+  4.Border
+  -> Used to set an element's Border.
+  Eg: div{
+   border: 2px solid black ;
+  }
+  //  Border shorthand
+  border: border-width border-style border-color; //
+
+  # Border sides
+  -> To control an individual side of the box.
+  border-left 
+  border-right 
+  border-top 
+  border-bottom
+
+  # Border Radius
+  -> Used to round the corners of an element's border edge
+  Eg: div{
+   border-radius: 15px;
+  }
+
+  5. Padding
+  -> Space between the border and the content area is given using padding.
+  Eg: div{
+   padding: 10px;
+  }
+  we can set padding-left padding-right padding-top padding-bottom separately.
+  // PADDING SHORTHAND //
+  #1 For all 4 sides            #2 top & bottom| left & right
+  -> padding: 50px;             -> padding: 1px 2px;
+
+  #3 top|left&right|bottom      #4 top|right|bottom|left
+  -> padding: 1px 2px 3px;      -> padding: 1px 2px 3px 4px;
+ 
+  6. Margin
+  -> To set spacing on the outside of the border.
+  Eg: div{
+   margin-top: 10px;
+   margin-bottom:10px;
+   margin-left: 20px;
+   margin-right: 20px;
+  }
+  // MARGIN SHORTHAND //
+   #1 For all 4 sides            #2 top & bottom| left & right
+  -> nargin: 50px;             -> margin: 1px 2px;
+
+  #3 top|left&right|bottom      #4 top|right|bottom|left
+  -> margin: 1px 2px 3px;      -> margin: 1px 2px 3px 4px;
+
+  # Display
+  -> It sets whether an element is treated as a block or inline element an the layout used for its children.
+  Eg: display: inline/block;
+  -> if we set the value as inline the element will start behaving as inline element and if we set it as block then it will start behaving as block element.
