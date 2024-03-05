@@ -281,3 +281,71 @@ input{
   -> It sets whether an element is treated as a block or inline element an the layout used for its children.
   Eg: display: inline/block;
   -> if we set the value as inline the element will start behaving as inline element and if we set it as block then it will start behaving as block element.
+
+  # Inline-block
+  -> It is used if we want to aplly all the properties applied to the element to get applied when it is in inline state.
+  -> style will be applied according to block element and it will behave as inline element.
+  Eg: div{
+   height: 100px;
+   width: 100px;
+   display: inline-block;
+  }
+  display: none;// it will set the display as none and the element will disappear from the screen 
+  -> So if we want hide a element we can set its display as none
+
+# RELATIVE UNITS
+1. Percentage(%)
+-> It is often used to define a size as relative to an element's parent object.
+Eg: width: 33%; //relative to the parent
+
+2.em
+-> Font size of the parent, in the case of typographical properties like font-size,and font-size of the element itself,in case of other properties like width.
+-> Drawback OF Em 
+   snowball effect in nested elements.
+   ->To AVOID THIS Rem(Root Em)is used.
+
+   3. Rem(Root Em)
+   -> Font size of the root element
+
+# CSS NEXT STEP
+# Alpha channel
+-> sets the opacity for a color
+ranges from 0to1(0:hidden 1:visible)
+Eg: rgba(255,255,255,0.3); //here a stands for alpha
+
+# Opacity
+-> Sets the opacity for the element
+Ranges from 0to1(0:hidden 1:visible)
+Eg: opacity: 0.5;
+
+# CSS Transitions
+-> Transitions enable you to define the transition between two states of an element.
+//TRANSITION SHORTHAND//
+Property name | duration | timing func | delay
+Eg: transition: margin-top 2s ease-in-out 0.2s;
+
+# CSS Transform
+-> This property lets you rotate,scale,skewor translate an element.
+1. rotate
+-> transform: rotate(45deg);
+
+2. scale
+-> transform: scale(0.5);//size half hojjayega//
+scale(x,y);// we can define how much we want to scale on xaxis and yaxis//
+
+3. Translate
+->transform: translate(50px,50px);
+we can move our element along x and y axis
+
+4.skew
+-> transform: skew(30deg);
+
+# Box shadow
+-> It adds shadow effects around an element's frame.
+Eg: box-shadow: 2px 2px 10px green;
+// box-shadow: xoffset yoffset blurRadius color;
+
+# Background Image
+-> Lets you set an image as a background.
+Eg: background-image: url("./xyz.jpg");
+    background-size: contain/cover/auto; 

@@ -1,0 +1,23 @@
+h1{
+    border: 2px solid black;
+    width: 33.33%;
+}
+#outter{
+    height: 400px;
+    width:400px;
+    background-color: pink;
+   font-size: 20px;/*if we want inner div ka fint size outer div ke font size ke respect me change ho*/
+}
+#inner{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    font-size: 2em;/* 2times of the outter div fontsize 40px*/
+    padding: 1em;/*1 times the font size of the inner div so 40px padding will be set*/
+}
+section{
+    font-size: 15px;
+}
+div{
+    font-size: 2rem; /* Here when we use em then each of thenested element get 2times the font size of its parent se font size of each div increases by 2 times each time to avoid this we will set rem this will set the size of all the divs relative to the section*/
+}
