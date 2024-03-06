@@ -349,3 +349,120 @@ Eg: box-shadow: 2px 2px 10px green;
 -> Lets you set an image as a background.
 Eg: background-image: url("./xyz.jpg");
     background-size: contain/cover/auto; 
+
+# Position
+-> The position CSS property sets how an element is positioned in a document.
+-> The top,right,bottom and left properties determine the final location of positioned elements.
+  1. static
+  -> The top,right,bottom.left and zindex properties have no effect.
+  -> This is the default value.
+  Eg: position: static;
+
+  2. relative
+  -> The offset is realative to itself based on the values of top,right,bottom,and left.
+  Eg: position: relative;// Objects position is taken as reference and it is moved with respect to its orignal position.
+
+  3. absolute
+  -> The element is removed from the normal doucment flow ,and no space is created for the element in the page layout.
+  -> It is positioned relative to its closest positioned ancestor , if any; otherwise it is placed relative to the initial containing block.
+  Eg: positon: absolute;//If parent has no position then it will placed relative to the intitial containing block//
+
+  4. fixed
+  -> The element is removed from the normal document flow and no space is created for the element in the page layout.
+  -> It is positioned realtive to the initial containing block established by the viewport.
+  Eg: position: fixed;
+
+# FLEXBOX
+-> It is a one dimensional layout method for arranging items in rows or columns.
+-> It helps in making our website responsive.
+
+# The Flex Model
+        |                    direction=row
+        |                
+   _____|__________________  main axis
+        |
+        |
+        |
+      cross axis
+
+-> There is one flex container and inside it we have flex items .We make the display of flex container as flex to use all the flexbox properties on the flex items.
+
+# Flexbox direction
+-> It sets how flex items are placed in the flex container along which axis and direction.
+  
+  flexbox-direction: row; //main axis left to right
+  flexbox-direction: row-reverse; //main axis right to left
+  flexbox-direction: column; //cross axis top to bottom
+  flexbox-direction: column-reverse; //cross axis bottom to top 
+
+# Justify content
+-> Tells how the browser distributes space between and around content items along the main axis
+   
+   justify-content: flex-start;
+   justify-content: flex-end;
+   justify-content: center;
+   justify-content: space-between;//extra space will go in between the flex items//
+   justify-content: space-around;//extra space will cover around the flex item//
+   justify-content: space-evenly;//space will be evenly distributed around the flex item//
+  
+# Flex Wrap
+-> Sets whether flex flex items are forced onto one line or can wrap onto multiple lines.
+
+  flex-wrap: nowrap;//by default//
+  flex-wrap: wrap;//flex items that will not come in same line will come in next line//
+  flex-wrap: wrap-reverse;
+
+# Align items
+-> Distributes our items along the cross axis
+  
+  align-item: flex-start;
+  align-item: flex-end;
+  align-item: center;
+  align-item: baseline;//all the item will be on the same baseline priority will be given to the content baseline//
+
+# Align content
+-> It sets the distribution of space between and around content items along a flexbox's cross axis.
+
+  align-content: flex-start/flex-end/center;
+  align-content: space-between/space-around/evenly;
+  align-content: baseline;
+
+# Align Self 
+-> Align an item along the cross axis
+-> It is for individual item
+  alignself > alignitem
+  
+  align-self: flex-start;
+  align-self: flex-end;
+  align-self: center;
+  align-self: baseline;
+
+# Flex Sizing
+
+1. flex-basis
+-> It sets the initial main size of a flex item.
+   
+   flex-basis: 100px;
+
+2. flex-grow
+-> It specifies how much of the flex container's remaining space should be assigned to the flex item's main size
+
+  flex-grow: 1;
+
+3. flex-shrink
+-> It sets the flex shrink factor of a flex item.
+
+  flex-shrink: 1;
+
+// FLEX SHORTHAND //
+1. flex-grow | flex-shrink | flex-basis
+-> flex:2 2 100px;
+
+2. flex-grow | flex-basis
+-> flex: 2 100px;
+
+3. flex-grow(unitless)
+-> flex: 2;
+
+4. flex-basis
+-> flex: 100px;
