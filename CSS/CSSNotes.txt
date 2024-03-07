@@ -466,3 +466,166 @@ Eg: background-image: url("./xyz.jpg");
 
 4. flex-basis
 -> flex: 100px;
+
+# CSS GRID
+-> Setting a container's display to grid will make all children grid items.
+Eg: container{
+   display: grid;
+}
+
+# Grid Model
+
+             COLUMN LINES
+       L1      L2      L3      L4
+   ____|_______|_______|_______|____L1
+       |       |       |       |
+       |       |       |       |
+   ____|_______|_______|_______|____L2    
+       |       |       |       |         ROW LINES
+       |       |       |       |
+   ____|_______|_______|_______|____L3
+       |       |       |       |
+       |       |       |       |
+   ____|_______|_______|_______|____L4
+       |       |       |       |
+
+-> Horizontal lines: Row lines.
+-> Vertical Lines: Column lines.
+-> Grid cell: When row line and column lines are combined they for a cell which is known as grid cell.
+-> Grid track: It is the distance between two line.
+Eg: Distance between L1 & L2 is grid track.
+
+# Grid Template
+-> They define the line and track sizing.
+
+   grid-temlplate-rows
+   -> gird-template-rows: 100px 100p 100px;//creates 3 rows of 100px.
+
+   grid-Template-columns
+   -> gird-template-columns: 100px 100px 100px;//creates 3 columns of 100px
+   -> We can also give it value as auto this will divide the columns into equal parts
+   Eg: gird-template-columns:auto auto;//divide the space in 2 equal part and make 2 columns
+
+-> Repeat is used to divide all available space.
+Eg: grid-temlplate-rows: repeat(count,1fr);
+    grid-Template-columns: repeat(count,1fr);
+    //1fr means 1fraction of 100% width in case of rows & 1fraction of 100% height in columns
+
+    grid-template-rows: repeat(4,1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr;// we can also write the above repeat like this.
+
+# Grid Gaps
+-> They define the gaps between lines.
+   
+   row-gap: 10px;
+   column-gap:10px;
+   grid-gap: rowGap columnGap;
+
+# Grid columns
+-> Defines an item's starting and ending position inside the column. 
+
+   grid-column-start: line_number;
+   grid-column-end: line_number;
+   grid-column: start-col/ end-col;
+   grid-column: start_col/ span number;
+
+# Grid rows
+-> Define an item's starting & ending position inside the row.
+   
+   grid-row-start: line_number;
+   grid-row-end: line_number;
+   grid-row: start_row/end_row;
+   grid-row: start/span number;
+
+# Common Properties 
+1. Horizontal align 
+-> justify-items (container)
+-> justify-self (item)
+
+2. Vertical align 
+-> align-items (container)
+-> align-self (item)
+
+-> place-items (container)// if we want to align the items in the center of container we can use place-item:center;
+->place-self(item)
+
+// By default grid is an block element but if we want it to be inline we can use
+-> display: inline-grid;
+
+# CSS Animations
+-> To animate CSS elements
+  @keyframes fontAnimation{ //blueprint of animation
+   from{font-size: 20px;}
+   to{font-size: 40px;}
+  }
+-> animation-name
+   animation-name: fontAnimation;//animation which we want to apply in above example it is fontAnimation//
+
+-> animation-duration
+   animation-duration: 2s;//how long animation should stay//
+
+-> animation-timimg-function
+   animation-timing-function: ease-in;//how animation should take place//
+
+-> animation-delay
+   animation-delay: 1s;// animation hone me kitne der ka delay ho//
+
+-> animation-iteration-count
+   This tells how many times you want to show the animation.
+   Eg: animation-iteration-count: 1/2/3/4...infinite;
+
+-> animation-direction 
+   animation-direction: normal/reverse many more read from mdn;//tells the direction of animation
+
+// ANIMATION SHORTHAND //
+-> animation: myName 2s linear 3s infinite normal;
+
+# % in Animation
+-> @keyframes myName{
+   0%{font-size: 20px;}
+   50%{font-size: 30px;}
+   100%{font-size: 40px;}
+}
+// here we are giving at what percent what change should be applied in above from means 0% to means 100%.
+
+# Media Queries
+-> Helps to create a responsive website.
+   media features-width(of viewport)
+   Eg: @media(width:400px){
+      div{
+         background-color: red;
+      }
+   }
+
+    @media(min-width:400px){// if width is 400px or more then these changes will be applied//
+      div{
+         background-color: red;
+      }
+   }
+
+    @media(max-width:400px){//if width is 400px or less than 400px then these changes will be applied//
+      div{
+         background-color: red;
+      }
+   }
+
+    @media(min-width: 200px) and (max-width: 300px){//200px -300px range me ye changes apply honge//
+      div{
+         background-color: red;
+      }
+   }
+
+# orientation(of viewport)
+-> @media( orientation: landscape){//if orientation is landscape the the colur will change
+   div{
+      background-color: red;
+   }
+}
+
+# z-index
+-> It decides the stack level of the elements
+-> Overlapping elements with a larger z-index cover those with a smaller one.
+Eg: z-index: auto(0);
+    z-index: -1/-2/1/2/....;
+// By default value is 0
+// If we want to change the zindex of any element then its position shoul not be static or default.
