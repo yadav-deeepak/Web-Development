@@ -1,0 +1,114 @@
+# JAVASCRIPT
+-> JavaScript is the programming language of the Web.
+-> Used to program the behavior of web pages.
+
+# Using the console
+// Uses REPL(Read-Evaluate-Print-Loop)
+-> Open the browser inspect and open the console.
+-> Code we write on console is temporary it will be removed as soon as we refresh the page.
+-> To clear the console om windows use ctrl+L .
+
+# Variables
+-> A variable is simply the name of a storage location where we store our data.
+Eg: a=10 // Here a is a variable whose value is 10
+
+# Data Types In JS 
+1. Primitive Types
+// We can use typeof operator to check the type of the data .
+-> JS automatically detects the typeof variable.
+Eg: typeof variableName
+-> Number
+  -> Positive(14) & negative(-4)
+  -> Integers(45,-50)
+  ->Floating numbers - with decimal(4.6,-8.9)
+     Eg: a=10 //a is a number 
+  
+  # Operation in JS
+  -> Addition
+  Eg: a=20 b=10
+      sum=a+b //a & b are operands & + is operator
+  -> Subtraction
+  Eg: a=20 b=10
+      diff=a-b
+  -> Multiplication
+  Eg: mul=a*b
+  -> Division
+  Eg: div=a/b 
+  -> Modulo(Remainder operator)
+  Eg: 12 % 5=10
+  -> Exponentiation( Power operator)
+  Eg: 2**3=8
+
+ # Operator Precedence
+ -> This is the general order of solving an expression.
+ order: ( ) > ** > *,/,% > +,-
+ -> Highest priority is of ( ) & lowest is +,-
+
+-> Boolean
+  -> Bollean represents a truth value-> true/false/yes/no
+  Eg: let age=23;
+      let isAdult=true;
+
+-> String
+Eg: name="Tony" // Name is a string 
+-> Undefined
+-> Null
+-> Bigint
+-> Symbol
+
+# NaN IN JS 
+-> The NaN global property is a value representing Not-A-Number.
+-> typeof NaN is number but the number it is representing is not a valid number.
+-> Basically NaN is just a invalid number
+Eg: 0/0 //0 but it's type is NaN 
+   NaN-1 //NaN
+   NaN*1 //NaN
+   NaN+NaN //NaN
+
+# let keyword
+-> Syntax of declaring Variables.
+-> In max cass we will be using let keyword to declare a variable.
+Eg: let age=23;    let cgpa;
+   age=age+1;      cgpa=8.9;
+
+# const keyword 
+-> values of constants can't be changes with re-assignment & they can't be re-declared
+Eg: const year= 2025;    const pi=3.14;
+    year=2026 //Error    const g=9.8;
+    year=year+1 //Error
+
+# var keyword
+-> Old syntax of writing Variables
+Eg: var age=23;
+    var cpgpa=8.9;
+
+# Assignment Operator
+-> It is used to assign a value to a variable. 
+-> age=age+1 / age+=1
+
+# Unary Operators
+-> Unaray operators require one operand .
+Eg: age+=1 // 1 operand age
+    age++; //Increment operator
+    age--; //decrement operator 
+# Pre-Increment( change then use)
+-> let age = 10;
+   lete newAge= ++age;
+
+# Post-increment(use then change)
+-> let age=10;
+let newAge= age++;
+
+# Identifier Rules
+-> All JS variables must be identified with unique names (identifiers)
+   -> Names can contain letters, digits , underscores and dollor signs .(no space)
+   -> Name must begin with a letter.
+   -> Names can laso begin with $ and  _ .
+   -> Names are case sensitive (y and Y are different variables).
+   -> Reserved words cn't be used as names.
+
+# camelCase
+-> way of writing identifiers.
+Eg: camelCase(JS naming convention): let fullName;
+    snake_case: let full_name;
+    PascalCase: let FullName;
