@@ -49,10 +49,34 @@ Eg: typeof variableName
   Eg: let age=23;
       let isAdult=true;
 
--> String
-Eg: name="Tony" // Name is a string 
--> Undefined
--> Null
+ # String
+  -> Strings are text or sequence of characters 
+  -> Anything written inside a single quote(' ') is string. 
+     Eg: let name="Tony" // name is a string 
+         let num='123'; // typeof num is string
+ 
+  # String Indices
+  -> let name = "TONY STARK";
+  -> To find the length of the string we use 
+  Eg: name.length // 10 (return the length of string)
+  -> T O N Y   S T A R K 
+     0 1 2 3 4 5 6 7 8 9  //0 based indexing
+     name[0]-> 'T' name[1]-> 'O' name[2]-> 'N' name[3]-> 'Y' name[4]-> ' ' 
+     name[5]-> 'S' name[6]-> 'T' name[7]-> 'A' name[8]-> 'R' name[9]-> 'K' 
+
+  # Concatenation
+  -> Adding strings together.
+  Eg: "tony" + " " + "stark" = "tony stark"
+
+# Undefined
+-> A variable that has not been assigned a value is of type undefined.
+Eg: let a; // type of a is undefined
+
+# Null
+-> The null value represents the intentional absence of any object value.
+-> To be explicitly assigned.
+Eg: let a =null; // type of a is 'object' and value is null
+
 -> Bigint
 -> Symbol
 
@@ -112,3 +136,9 @@ let newAge= age++;
 Eg: camelCase(JS naming convention): let fullName;
     snake_case: let full_name;
     PascalCase: let FullName;
+
+# TypeScript
+-> Static Typed, whwere JS is dynamic typed.
+-> Designed by Microsoft
+Eg: TS -> a=5; a=true;//this will give error once a data type is declared it can't be changed.
+Js -> a=5; a=true; //this will not give error as JS is dynamically typed.
