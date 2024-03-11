@@ -1,0 +1,85 @@
+# Bootstrap
+-> It is a CSS framework.
+-> It works on the concept of flexbox.
+-> It is a powerful feature-packed frontend toolkit. Build anything from prototype to production-in minutes.
+
+# Benifits of Bootstrap
+-> Makes development faster & easier.
+-> Good choice of pre build components.
+-> Good browser compatibility.
+
+# Using Bootstrap
+-> We can use CDN(Content Delivery Network) to use bootstrap.
+-> Using link tag link cdn files.
+-> Go to the bootstrap Docs and include cdn links from there
+-> Add CSS stylesheet link after bootstrap link so that if you want to make any changes in the style it will be applied.
+
+# How to add Bootstrap?
+-> We can add bootstrap by adding class name to the html element under each class a stle is written in bootstrap .
+-> Read the bootstrap docs and add according to your need.
+Eg: <button class-"btn btn-danger">Click me</button> //this will create the button with the styling of btn-danger defined in bootstrap for this class.
+
+# What we will cover?
+1. components
+-> Pre-built and reusable piece of user interface(UI).
+Eg: button,forms
+
+2. Layouts
+-> Overall structure and arrangement of the elements
+Eg: container,grid
+
+# Container 
+-> Containers are used to contain, pad and(sometimes)center the content within them.
+
+# How they work 
+-> Containers are the most basic layout element in Bootstrap and are required when using our default grid system. Containers are used to contain, pad, and (sometimes) center the content within them. While containers can be nested, most layouts do not require a nested container.
+
+-> Bootstrap comes with three different containers:
+
+  ->.container, which sets a max-width at each responsive breakpoint
+  ->.container-{breakpoint}, which is width: 100% until the specified breakpoint
+  ->.container-fluid, which is width: 100% at all breakpoints
+
+# // COMPONENTS // 
+
+# Buttons
+-> Use Bootstrap’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
+
+# Base class
+-> Bootstrap has a base .btn class that sets up basic styles such as padding and content alignment. By default, .btn controls have a transparent border and background color, and lack any explicit focus and hover styles.
+Eg: <button type="button" class="btn">Base class</button> //The .btn class is intended to be used in conjunction with our button variants, or to serve as a basis for your own custom styles.
+// Read more from Bootstrap Docs.//
+-> Variants
+-> Button tags
+-> Outline buttons 
+-> Sizes
+
+# Badges
+-> Badges scale to match the size of the immediate parent element by using relative font sizing and em units. As of v5, badges no longer have focus or hover styles for links.
+  # Buttons
+  -> Badges can be used as part of links or buttons to provide a counter.
+  Eg: <button type="button" class="btn btn-primary">
+  Notifications <span class="badge text-bg-secondary">4</span>
+  </button>
+  # Positioned
+  -> Use utilities to modify a .badge and position it in the corner of a link or button.
+  Eg: <button type="button" class="btn btn-primary position-relative">
+  Inbox
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>
+ # Background colors
+ Eg: <span class="badge text-bg-success">Success</span>
+
+# Alerts
+-> Alerts are available for any length of text, as well as an optional close button. For proper styling, use one of the eight required contextual classes 
+Eg. , .alert-success
+    <div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div>
+  # Live example
+  -> Click the button below to show an alert (hidden with inline styles to start), then dismiss (and destroy) it with the built-in close button.
+  Eg: <div id="liveAlertPlaceholder"></div>
+<button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
