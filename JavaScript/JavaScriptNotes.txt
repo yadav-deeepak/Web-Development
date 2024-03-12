@@ -142,3 +142,63 @@ Eg: camelCase(JS naming convention): let fullName;
 -> Designed by Microsoft
 Eg: TS -> a=5; a=true;//this will give error once a data type is declared it can't be changed.
 Js -> a=5; a=true; //this will not give error as JS is dynamically typed.
+
+# console.log()
+-> To write(log) a message on the console.
+-> It links the console of browser to the js file.
+Eg: console.log("Suraj");
+    console.log("Viper");
+
+# Linking JS file
+-> To link js file with html we use <script> tag.
+-> Syntax: <script src="app.js"></script> 
+-> We link the js file just before the closing of body tag.
+
+# Comments in JS
+-> To write comments in js we write 2 forward slash before the statement/ or we can use ctrl+/ 
+-> Comments can't be seen in the console window.
+Eg: // console.log("Hello JavaScript!");
+
+# Template Literals
+-> They are used to add embedded expressions in the string.
+-> Back ticks are used (` `).
+Eg: let a=5;
+    let b=10;
+    console.log(`Your pay ${a+b} rupees`);
+
+# Operators in  JS
+
+1. Arithmetic (+,-,*,/,%,**)
+2. Unary (++,--)
+3. Assignment (=,+=,*=,-=,/=,%=)
+
+4. Comparison Operators 
+-> To compare 2 values.
+-> Returns true/ false or 0/1  
+     >,>=,<.<=,==,!=
+-> == ( double equalto) ignore the type of the variable it just compare value.
+Eg: let a =5;// number
+    let str='5';//string
+    a==str;// true
+-> So when we want to compare type and value both we use === ( tripple equalto) operator.
+Eg:  let a =5;// number
+    let str='5';//string
+    a===str;// false
+
+   # Comparison for non-numbers
+   ->'a'<'A' // false 
+   -> Each character has its own ASCII number.So when we compare characters these ASCII values are compared.
+   -> 'a'- 61 , 'b'- 62,....
+    'A' - 41 , 'B'- 42,....
+
+5. Logical Operators 
+
+# Conditional statements
+-> if-else
+   Syntax: if(condition){
+           statement; //condition is true
+           }     
+           else statement; //condition is false 
+
+-> nested if-else
+-> switch
