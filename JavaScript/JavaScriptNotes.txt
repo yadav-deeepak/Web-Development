@@ -192,13 +192,65 @@ Eg:  let a =5;// number
     'A' - 41 , 'B'- 42,....
 
 5. Logical Operators 
+-> Logical operators to combine expressions.
+-> If we have multiple logical operators in a single expression then we solve it from left to right.
+1. && (Logical AND): (exp1) && (exp2)
+-> Gives true when both exp1 and exp2 are true.
+
+2. || (Logical OR): (exp1) || (exp2)
+-> Gives true when any one of expression is true.
+
+3. ! (Logical NOT): !(exp)
+-> If exp is true !exp returns false /exp is false then !exp returns true. 
+
+# truthy & falsy
+-> Everything in JS is true /False(in boolean context).
+-> This doesn't mean their value itself is false or true, but they are treated as flase /true if taken in boolean context.
+// FALSY values
+-> false, 0, -0,0n(Bigint value),""(empty string),null,undefined,NaN
+
+// TRUTHY values
+-> Everything else
 
 # Conditional statements
 -> if-else
    Syntax: if(condition){
            statement; //condition is true
-           }     
-           else statement; //condition is false 
+           }  
+           else if(condition) { //if above condition is not true then this condition will be checked
+            statement;
+           }  
+           else statement; //when all of the above conditions are false then else statement is executed 
 
 -> nested if-else
--> switch
+   -> Nesting is writing if else inside  if else statements.It can have many levels.
+   Syntax: if(condition){
+                 if(condition){
+                    statement;
+                 } 
+                 else statement;
+            }
+            else statement;
+
+-> switch statement
+   -> Used when we have some fixed values that we need to compare to.
+   Syntax: switch(condition){
+               case 1 : statement;
+                        break;
+               case 2 : statement;
+                        break;
+               default : statement; //When all the case are flase then default statement run.   
+           }  
+
+# ALERT & PROMPT
+->Alert displays an alert message on the page.
+Eg: alert("Something's wrong");
+
+-> Prompt displays a dialogue box that asks user for some input.
+Eg: prompt("Please enter your rollno."); 
+
+# console.error("Error message");
+-> This is used to show an error mssg on the console.
+
+# console.warn("Warning!");
+-> This is used to show a warning mssg on console.
