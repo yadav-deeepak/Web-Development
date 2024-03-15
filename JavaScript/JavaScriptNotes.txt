@@ -348,3 +348,99 @@ Eg: let fruits =['MANGO" , "APPLE" , "LITCHI"];
     fruits[10]="orange";
 -> The spaces we left will be counted as empty spaces in array .
   fruits=["banana" , "APPLE" , empty*7 , "LITCHI"]
+
+# Array Method
+   1. Push: add to end.
+   2. Pop: delete from end & returns it
+   3. Unshift: add to start.
+   4. shift: delete from start & returns it.
+   Eg: 
+       let cars =["audi","bmw","xuv","maruti"];
+       console.log(cars); //['audi', 'bmw', 'xuv', 'maruti']
+       cars.push("toyota");
+       cars.push("ferrari");
+       console.log(cars);//['audi', 'bmw', 'xuv', 'maruti', 'toyota', 'ferrari']
+       cars.pop(); //Returns ferrari
+       console.log(cars);// ['audi', 'bmw', 'xuv', 'maruti', 'toyota']
+       cars.unshift("ferrari");
+       console.log(cars);//['ferrari', 'audi', 'bmw', 'xuv', 'maruti', 'toyota']
+       cars.shift();// Returns ferrari
+       console.log(cars);//['audi', 'bmw', 'xuv', 'maruti', 'toyota']
+    
+    5. indexOf: returns index of somenthing
+       Eg: let primary =['red','yellow','green'];
+           console.log(primary.indexOf('yellow'));
+
+    6. includes: search for a value
+       Eg: primary.includes("red"); //true
+
+    7. concat: merge 2 arrays.
+       Eg: primary.concat(secondary);//merges secondary array with primary array.
+
+    8. reverse: reverse an array.
+       -> Changes are not done in existing array a new array is created we can use it by storing it in another variable. 
+      Eg: primary.reverse();//['green','yellow','red'];
+
+    9. slice: Copies a portion of an array.
+       syntax: slice(start,end);
+       -> returns value from start to end-1.
+       Eg: let color = ["red","yellow","blue","orange","pink","white"];
+       color.slice();//["red","yellow","blue","orange","pink","white"]
+       color.slice(2);// ["blue","orange","pink","white"]
+       color.slice(2,3);// ["blue"]
+       color.sloce(-2);// ["pink","white"] last se  2 elements return hojaayenge
+      
+    10. splice: removes/replaces/add elements in 
+        place.
+        -> It's changes are applied into the orignal array
+        -> It returns the array of elements deleted
+        Synatax: splice(start,deleteCount,item0......itemN)
+        Eg: color.splice(4);//returns ["pink","white"]
+            color // ["red","yellow","blue","orange"]
+            color.splice(0,1);// returns ["red"]
+            color //["yellow","blue","orange"]
+            color.splice(0,1,"black","grey"); //returns ['yellow']
+            color //["black","grey","blue","orange"]
+    
+    sort: sorts an array
+    -> It first converts into string and then sort it. That is the reason why numbers are not sorted properly.
+    -> We use sort when we have to sort characters or string elements.
+    Eg: let days =["moday","sunday","wednesday","tuesday"];
+        days.sort(); // ["moday","sunday","tuesday","wednesday"] sorted in alphabetical order
+        let squares =[25,16,4,49,36,9];
+        squares.sort(); // [16,25,36,4,49,9]
+
+# Array References
+-> References means address in memory.
+Eg: "name" == "name" //true
+    [1] == [1] // false
+    [] == [] //false
+-> The above 2 values are false due to array references.
+-> Whenever an array is created an reference variable is created in JS 
+Eg: let nums = [1,2,3];
+// Here nums is a reference variable which will be used to acces the array elements.
+    let arr1 = [1];
+    let arr2 =[1];
+    // arr1 & arr2 has the menory addres of its first variable not the value [1] that is the reason why we will get false when we compare arr1 ==arr2 //False
+    
+Eg2: let arr1 = ['a','b'];
+     let arrCopy = arr1;
+     arrCopy.push('c');
+     console.log(arr1); //['a','b','c']
+     console.log(arr1==arrCopy); //true
+-> So here arrCopy has same address as arr1 so it is giving true when arr1==arrCopy
+-> Any changes done in arrCopy will be reflected in arr1.
+
+# Constant arrays
+-> const arr=[1,2,3,4];
+-> When we create a constant array then we can increase or decrease its length but we can't change the array completely.
+-> This means that variable name arr becomes constant
+the address that is stored in arr remains same it can't be changed.
+
+# Nested Arrays / Multi dimensional arrays
+-> Arrays of array
+Eg: let nums =[[2,4],[3,6],[4,8]];
+    console.log(nums); //(3) [Array(2), Array(2), Array(2)]
+    console.log(nums.length);//3
+    nums[0][0];//2
+    nums[0][1];//4
