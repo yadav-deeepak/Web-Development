@@ -39,12 +39,42 @@ for(let i=1;i<=3;i++){
     a++;
  } 
 
- let favMovie="Avatar";
- let guess = prompt(" Guess my favorite movie");
+//  let favMovie="Avatar";
+//  let guess = prompt(" Guess my favorite movie");
 
- while((guess!=favMovie) && (guess!="quit")){
-    guess = prompt("Wrong answer, guess again");
- }
-if(guess ==favMovie){
-    console.log("Congrats u guessed it right");
+//  while((guess!=favMovie) && (guess!="quit")){
+//     guess = prompt("Wrong answer, guess again");
+//  }
+// if(guess ==favMovie){
+//     console.log("Congrats u guessed it right");
+// }
+
+
+let i=1;
+while(i<=5){
+   if(i==3){
+      break;
+   }
+   console.log(i);
+   i++;
 }
+
+let fruits = ["mango","apple","banana","litchi","orange"];
+
+// for( fruit of fruits){
+//    console.log(fruit);
+// } 
+
+ for(let i=0;i<fruits.length;i++){
+     console.log(i, fruits[i]);
+ }
+
+let heroes = [["ironman","spiderman","thor"],["superman","wonderwoman","flash"]];
+
+for(let i=0;i<heroes.length;i++){
+    console.log(`List #${i}`);
+    for(let j=0;j<heroes[i].length;j++){
+        console.log(heroes[i][j]);
+    }
+}
+

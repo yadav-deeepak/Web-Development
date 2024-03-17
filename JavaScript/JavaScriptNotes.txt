@@ -490,3 +490,48 @@ Eg: let n = prompt("Enter your number");
         console.log(i);
         i++;
     } 
+
+# break keyword
+-> It helps us to get out of the lopp execution.
+Eg: let i=1;
+while(i<=5){
+   if(i==3){ // As soon as i gets 3 the loop will break.
+      break;
+   }
+   console.log(i);
+   i++;
+}
+
+# Loops with arrays
+-> let fruits = ["mango","apple","banana","litchi","orange"];
+// We can access array elements using for loop //
+for(let i=0;i<fruits.length;i++){
+    console.log(i, fruits[i]);
+}
+
+# Nested loops with nested arrays
+-> let heroes = [["ironman","spiderman","thor"],["superman","wonderwoman","flash"]];
+
+for(let i=0;i<heroes.length;i++){
+    console.log(`List #${i}`);
+    for(int j=0;j<heroes[i].length;j++){
+        console.log(heroes[i][j]);
+    }
+}
+
+# for of loop 
+-> for(element of collection){
+    //do something
+}
+Eg: let fruits = ["mango","apple","banana","litchi","orange"];
+for( fruit of fruits){
+    console.log(fruit);
+} 
+
+# Nested for of loop
+-> let heroes = [["ironman","spiderman","thor"],["superman","wonderwoman","flash"]];
+for(list of heroes){
+    for(hero of list){
+        console.log(hero);
+    }
+}
