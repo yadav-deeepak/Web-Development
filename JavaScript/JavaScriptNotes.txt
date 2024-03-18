@@ -535,3 +535,101 @@ for(list of heroes){
         console.log(hero);
     }
 }
+
+# Object Literals
+-> Used to store keyed collections & complex entities.
+-> property=>(key,value)parseInt
+-> Objects are collection of properties.
+Eg: student
+   name  "Deepak"  //property1
+   age    22      //property2
+   marks  6.9     //property3
+   key    value
+
+// student is a object with name age and marks as its property in the form of key value pair.
+
+# Creating object Literals
+Eg: let delhi = {
+    latitude: "22.7041 N",
+    longitude: "77.1025 E"
+};
+-> const student = { 
+     name: "Viper",
+     age: 23,
+     marks: 6.9,
+     city: "Delhi"
+};
+-> The object literal created with const will have its address as constant and we can change any of the propert value according to our need.
+
+// We can also use arrays inside objects
+Eg: const item ={
+   price: 100.99,
+   discount: 50,
+   colors: ["red","pink"]
+};
+
+# Get values
+-> let student ={
+    name: "Viper",
+    marks: "94.4
+};
+// We can access it by following ways
+   student["name"]  //objectName["key"]
+   student.name     //objectName.key
+-> objectName["key"]
+   We use this method when we need to use a variable to access the object data.
+   Eg: let prop = "repost";
+      post[prop];
+    //We can access it like this but we can't use variable like this in objectName.key method
+-> objectName.key 
+   We use this when we want to access the content of object without using another variable.
+   Eg: post.repost;
+
+-> JS automatically converts objects keys to strings.
+-> Even if we made number as a key , the number will be converted to string.
+
+# Add / Update value
+-> let student = {
+    name: 'Viper',
+    age: 23,
+    marks: 9.9,
+    city: "Delhi"
+};
+=> Change the city to 'Mumbai"
+   student.city = "Mumbai";
+
+=> Add a new property gender: "Male"
+   student.gender;
+   student.gender= "Male";
+
+=> Chnage the marks to "A"
+   student.marks='A';
+
+# Delete a key value pair
+-> delete objectName.keyName;
+-> Returns ture if key is deleted successfully else false.
+
+# Object of Objects
+-> Storing information of multiple students.
+Eg: const classInfo = {
+    aman : {
+        grade: "A",
+        city: "Delhi"
+    },
+    viper : {
+        grade: "A+",
+        city: "Banglore"
+    },
+    Suraj : {
+        grade: "A",
+        city: "Mumbai"
+    }
+
+};
+
+# Array of objects
+-> Storing information of multiple students.
+Eg: const classInfo = [{name: "viper",age: 21,city: "Delhi"},{name: "suraj",age: 20,city: "Lucknow"},{name: "harsh",age: 21,city: "Noida"}];
+
+# Math Object
+
