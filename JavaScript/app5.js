@@ -59,3 +59,16 @@ const inform = [{name: "viper",age: 21,city: "Delhi"},{name: "suraj",age: 20,cit
 console.log(inform[0]);
 console.log(inform);
 console.log(inform[1].name);
+
+console.log(Math.abs(-12));
+console.log(Math.pow(2,3));
+console.log(Math.floor(5.999));
+console.log(Math.ceil(5.9));
+console.log(Math.random()); //Every time it generates a new random number
+
+let num = Math.random();
+ num = num*10;
+ num = Math.floor(num);
+ num = num+1;        
+ console.log(num);    
+

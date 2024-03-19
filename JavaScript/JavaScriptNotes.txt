@@ -632,4 +632,29 @@ Eg: const classInfo = {
 Eg: const classInfo = [{name: "viper",age: 21,city: "Delhi"},{name: "suraj",age: 20,city: "Lucknow"},{name: "harsh",age: 21,city: "Noida"}];
 
 # Math Object
+-> Properies         
+   Math.PI -> It is used to give the value of pi.
+   Eg: Math.PI; // 3.141592653...         
+   Math.E -> It is used to return the value of the constant E.
+   Eg: Math.E; //2.7182818284...
 
+->Methods      
+   Math.abs(n) -> It is used to return the absolute value of a number.
+   Eg: Math.abs(12); //12 
+       Math.abs(-12); //12             
+   Math.pow(a,b) -> It is used to calculate the power of a number.
+   Eg: Math.pow(2,3); //8               
+   Math.floor(n) -> This is used to roundoff the value to the nearest smallest integer value.
+   Eg: Math.floor(5.5); //5
+       Math.floor(5.999); //5
+   Math.ceil(n) -> This is used to roundoff the value to the largest nearest integer value.
+   Eg: Math.ceil(5.9); //6  
+   Math.random() -> It is used to return the random number between 0 & 1 (where 1 is exclusive it is not included).
+   Eg: Math.random(); //generates Random number 
+
+   # Random Integers 
+   -> From 1 to 10
+   step1: let num = Math.random();
+   step2: num = num*10;
+   step3: num = Math.floor(num);
+   step4: num = num+1;            
