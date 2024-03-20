@@ -658,3 +658,5 @@ Eg: const classInfo = [{name: "viper",age: 21,city: "Delhi"},{name: "suraj",age:
    step2: num = num*10;
    step3: num = Math.floor(num);
    step4: num = num+1;            
+
+# Functions
