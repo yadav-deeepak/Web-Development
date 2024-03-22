@@ -678,3 +678,117 @@ Syntax: function funcName(arg1,arg2,..){
     //do something
 }
 -> Value should be passed orderwise. It means that if we have given the name in the first argument then we should pass name as first argument . 
+
+# return
+-> It is a keyword used to return some value from the function.
+-> input---->   function    ------> output
+             (does some work)
+-> Syntax: function funcName(arg1,arg2,..){
+    //do something
+     return value;
+}
+-> return ke baad ki koi bhi line function me xecute nahi hogi.
+Eg: function sum(a,b){
+    console.log("Hello");
+    console.log("Hello");
+    return a+b;
+    console.log("Hello2");
+    console.log("Hello2");
+}
+// Hello2 will not be printed as it is coming after return 
+
+# Scope
+-> Scope determines the accessibility of variables ,objects and functions from different parts of the code.
+1. Function
+-> Variables defined inside a function are not accessible(visible) from outside the function.
+Eg: function sum(a,b){
+    let sum = a+b;
+}
+// here variable sum can only be used inside the sum function . It can't be accessed outside the sum()
+
+2. Block
+-> Variables declared inside a { } block cannot be accessed from outside the block.
+-> Block scope applies on let and const variables only.
+Eg: {
+    let a=25; //Block scope 
+    console.log(a); // This variable can be accessed only inside this block
+}
+
+3. Lexical
+-> A variable defined outside a function can be accessible inside another function defined after the variable declaration.
+-> The opposite is not true.
+Eg: function outterFunc(){
+    let x= 5;// lexical scope
+    let y =6;
+    console.log(x,y);
+    function innerFunc(){
+        console.log(x);
+    }
+    innerFunc();
+}
+
+# Function Expressions 
+-> Another way of writing function.
+-> These functions are nameless functions.
+-> const variable = function(arg1,arg2,..){
+    //do something /return something 
+}
+Eg: const sum = function(a,b){
+    return a+b;
+}
+sum(2,4);
+
+# High order functions 
+-> A function that does one or both:
+   -> takes one or multiple functions as arguments 
+   Eg: function multipleGreet( func,n){
+            for(let i=1;i<=n;i++){
+                func();
+            }
+   }
+   let greet = function(){
+    console.log("Hello");
+   }
+   multipleGreet(greet,2);
+   // Whenever we pass a function we pass function name only brackets are not passed because we only need to send the function definition not it's calling.
+
+   -> returns a function 
+   Eg: function oddEvenTest(request){ // Factory function : Fun that creates new function
+          if(request == "odd"){
+            return function(n){
+                console.log(!(n%2==0));
+            }
+          }
+          else if(request == "even"){
+            return function(n){
+                console.log(n%2==0);
+            }
+          }
+          else{
+            console.log("Wrong request");
+          }
+   }
+
+# Methods 
+-> Actions that can be performed on an object.
+Eg: const calculator ={
+    add: function(a,b){
+        return a+b;
+    },
+    sub: function(a,b){
+        return a-b;
+    },
+    mul: function(a,b){
+        return a*b;
+    }
+};
+
+# Methods Shorthand 
+-> const calculator ={
+    add(a,b){
+        return a+b;
+    },
+    sub(a,b){
+        return a-b;
+    }
+}
