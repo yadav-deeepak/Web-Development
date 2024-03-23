@@ -792,3 +792,91 @@ Eg: const calculator ={
         return a-b;
     }
 }
+
+# this keyword 
+-> "this" keyword refers to an object that is executing the current piece of code.
+Eg: const student = {
+    name: "Suraj",
+    age: 20,
+    eng: 95,
+    math: 99,
+    physics: 84,
+    getAvg(){
+        let avg = (this.eng + this.math + this.phy) / 3;
+        console.log(avg);
+    }
+}
+// here if we want to access the property of student object inside the student object then we need to use this keyword.
+
+ function getAvg(){
+    console.log(this);
+ }
+ // Here we will get the window object
+ -> The value of this is by default is window object in general cases.
+ 
+# What is window object?
+-> Whenever we run a js code then the window object is created to create the browser window .
+-> Object at higher level on tab is window object.All of our code comes in this window object.
+
+# try and catch 
+-> The try statement allows you to define a block of code to be tested for errors while it is being executed .
+-> The catch statement allows you to define a block of code to be executed , if an error occurs in the try block.
+Eg: try{
+    console.log(a);
+}
+catch {
+    console.log("Variable a doesn't exist);
+}
+// If an error occurs in try block then the catch block will be executed else the try block will be executed.
+
+// Miscellaneous topics //
+
+# Arrow functions
+-> Arrow functions can be passed as a value to a variable.
+-> Syntax:
+const func = (arg1, arg2..) => {function definition}
+Eg: const sum = (a,b) => {
+    console.log(a+b);
+};
+-> When there is a single argument then we can remove the parenthesis.
+Eg: const cube = n =>{
+    return n*n*n;
+};
+-> In case we don't have any argument then we will put empty braces.
+Eg: const hello =() =>{
+    console.log("Hello world!");
+};
+
+# Arrow function 
+  # Implicit return 
+  -> When there is only one work done by a function that is to return a value then we use this.
+  -> const func = (arg1,arg2..) => (value)  
+  Eg: const mul = (a,b) => (a*b);
+  //We don't have to write any terminator or return keyword in the function .
+
+# Set timeout
+-> It is an inbuilt function of the window object.
+-> Syntax: setTimeout(function,timeout);
+Eg: console.log("hi there!");
+setTimeout( ()=>{
+    console.log("Apna college");//This function will be executed after 4s
+},4000);
+console.log("Welcome to");
+-> The function is the function that is to be executed after the timeout. Timeout is the timer after this timer the fuction should be executed.
+-> Timeout passes time in millisecond .
+-> So for 1s we have to pass 1000 because 1000ms =1s
+-> We usually use it for API calls and req response.
+
+# Set Interval
+-> Syntax: setInterval(function, timeout in ms);
+Eg: setInterval( () => {
+    console.log("Apna Desh");
+},2000);
+-> set interval will wait for time interval and keep on executing the funtion after that interval of time.
+-> Each interval call has a unique id.
+Eg: let id = setInterval( () => {
+    console.log("Apna Desh");
+},2000);
+-> To stop it from executing we can pass 
+clearInterval( id );
+// This will stop the execution of interval whose id is passed in clearInterval(id).
