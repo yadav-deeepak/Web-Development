@@ -880,3 +880,31 @@ Eg: let id = setInterval( () => {
 -> To stop it from executing we can pass 
 clearInterval( id );
 // This will stop the execution of interval whose id is passed in clearInterval(id).
+
+# this with arrow functions 
+-> In arrow function "this" has lexical scope and in normal function "this" has scope as calling object.
+-> Arrow function has scope same as the scope of the parent.(jo scope uske parent ka hoga whi scope arrow function ka bhi hoga.)
+Eg: const student = {
+    name: "aman", //global scope 
+    marks: 95,
+    prop: this,
+    getName: function () {
+        return this.name;
+    },
+    getMarks: () => { //parent's scope -> window obj
+        return this.marks;
+    },
+    getInfo1: function () {
+        setTimeout( () => {
+            console.log(this);// student obj
+        }, 2000);
+    },
+    getInfo2: function (){
+        setTimeout(function () {
+            console.log(this);// window object
+        }, 2000);
+    }
+};
+const a = 5;// global scope
+// for prop "this" keyword has a global scope hence window object and for getName() "this" keyword scope will be student object.
+// For getMarks() as it is an arrow function so its scope will be it's parents scope i.e, global scope hence window object.
