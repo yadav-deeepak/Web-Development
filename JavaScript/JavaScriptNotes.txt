@@ -908,3 +908,22 @@ Eg: const student = {
 const a = 5;// global scope
 // for prop "this" keyword has a global scope hence window object and for getName() "this" keyword scope will be student object.
 // For getMarks() as it is an arrow function so its scope will be it's parents scope i.e, global scope hence window object.
+
+# Array Methods
+  # forEach
+  -> Syntax: arr.forEach(some funtion definition or name);//The function inside this will run for each element of array.
+  Eg: let arr = [1,2,3,4,5];
+      function print(el){
+        console.log(el);
+      }
+      arr.forEach(print);
+           // OR
+      arr.forEach(function(el){
+        console.log(el);
+      });
+      
+  # map
+  # filter
+  # some
+  # every 
+  # reduce 
