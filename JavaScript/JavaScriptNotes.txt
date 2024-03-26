@@ -923,7 +923,33 @@ const a = 5;// global scope
       });
       
   # map
+  -> Apply some function on each element of array and the value returned is stored in new array whose size is same as orignal array.
+  -> Syntax: let newArr = arr.map(some function definition or name);
+  Eg: let num =[1,2,3,4];
+      let double = num.map(function(el){
+        return el*2;
+      });
+
   # filter
+  -> It check the filter condition and filter the array according to it and create a new array of same size.
+  -> If value is true then that element will be added to the new array else it will not be added.
+  -> Syntax: let newArr = arr.filter(some function defintion or name);
+  Eg: let nums = [2,4,1,5,6,2,7,8,9];
+      let even = nums.filter( (nums) =>(nums % 2 == 0) ); //even -> true, odd -> false
+
   # some
+  --> Returns true if some elements of array give true for some functions. Else returns false.
+  -> Synatx: arr.some(some function definiton or name);
+  Eg: [1,2,3,4].some( (el) => (el%2==0) ); //true
+      [1,3].some( (el) => (el%2==0) ); //false
+
   # every 
+  -> Returns true if every element of array gives true for some function .Else returns false.
+  -> Syntax: arr.every(some function definition or name);
+  Eg: [1,2,3,4].every( (el) => (el%2==0) ); //false
+      [2,4].every( (el) => (el%2==0) ); //true
+
   # reduce 
+  -> Reduces the arra;y to a single value 
+  -> Syntax: arr.reducer (reducer function with 2 variables for (accumulator, element));
+  Eg: [1,2,3,4].reduce( (res,el) => (res+el) ); 
