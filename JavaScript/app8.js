@@ -1,12 +1,12 @@
-let arr = [1,2,3,4,5];
-let print = function (el){
-        console.log(el);
-      }
- arr.forEach(print);
+// let arr = [1,2,3,4,5];
+// let print = function (el){
+//         console.log(el);
+//       }
+//  arr.forEach(print);
 
- arr.forEach((el) => {
-    console.log(el);
- })
+//  arr.forEach((el) => {
+//     console.log(el);
+//  })
 
  let arr1 = [{
     name: "Viper",
@@ -57,3 +57,12 @@ let result = nums1.reduce( (max,el) => {
    }
 });
 console.log(result);
+
+function sum (a, b=3){
+   return a+b;
+}
+console.log(sum(3));
+
+let arr = [1,2,3,4,5];
+    Math.min(...arr);
+    console.log(...arr);

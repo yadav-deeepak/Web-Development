@@ -953,3 +953,22 @@ const a = 5;// global scope
   -> Reduces the arra;y to a single value 
   -> Syntax: arr.reducer (reducer function with 2 variables for (accumulator, element));
   Eg: [1,2,3,4].reduce( (res,el) => (res+el) ); 
+
+# Default parameters
+-> Giving a default value to the arguments
+Eg: function func(a,b=2){
+    //do something 
+}
+ function sum (a, b=3){
+    return a+b;
+ }
+ // Here if we dont pass the value of b then its default value will be used.
+
+# Spread
+-> Expands an iterable into multiple values.
+-> Syntax: function func(...arr){
+    //do something 
+}
+Eg: let arr = [1,2,3,4,5];
+    Math.min(...arr);
+// We don't have to pass the values seperately we just have to write ...arr and this will pass all the values of the array individually .
