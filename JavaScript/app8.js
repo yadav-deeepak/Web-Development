@@ -66,3 +66,44 @@ console.log(sum(3));
 let arr = [1,2,3,4,5];
     Math.min(...arr);
     console.log(...arr);
+
+    let arr3 = [1,2,3,4,5];
+   let newArr = [...arr3]; // [1,2,3,4,5]
+   console.log(newArr);
+
+   let chars = [..."hello"]; //['h','e','l','l','o']
+   console.log(chars);
+
+
+let data ={
+   email: "abc123@gmail.com",
+   password: "xyaw",
+};
+let dataCopy = { ...data,id: 123 };
+console.log(data,dataCopy);
+
+function sum(...args){
+   //arguments
+   for(let i=0; i<args.length; i++){
+      console.log("You gave us: ",args[i]);
+   }
+   return args.reduce((sum,el)=> sum+el);
+}
+
+sum(34);
+sum(2,3,4,5,6,7,8);
+  
+let names = ["tony","bruce","steve","peter"];
+let [winner, runnerup] =names;
+console.log(winner, runnerup); 
+
+const student = {
+   name: "Suraj",
+   class: 9,
+   age: 14,
+   subjects: ["hindi","english","math","science","social studies"],
+   username: "suraj124",
+   password: 12345,
+};
+const { username: user , password: pass, city = "lucknow" } = student;
+console.log(user,city);

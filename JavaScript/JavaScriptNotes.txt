@@ -972,3 +972,76 @@ Eg: function func(a,b=2){
 Eg: let arr = [1,2,3,4,5];
     Math.min(...arr);
 // We don't have to pass the values seperately we just have to write ...arr and this will pass all the values of the array individually .
+
+# Spread with array Literals
+-> let arr = [1,2,3,4,5];
+   let newArr = [...arr]; // [1,2,3,4,5]
+
+   let chars = [..."hello"]; //['h','e','l','l','o']
+
+# Spread with object literals 
+-> Eg: let data ={
+    email: "abc123@gmail.com",
+    password: "xyaw",
+};
+let dataCopy = { ...data,id: 123 };
+// Output //
+dataCopy = {
+    email: "abc123@gmail.com",
+    password: "xyaw",
+    id: 123 ,
+}
+-> We can also spread arrays and string in object literals
+Eg: let ar =[1,2,3,4,5];
+    let obj1 = { ...ar };
+    // OUTPUT //
+    obj1 ={
+        0: 1,
+        1: 2,
+        2: 3,
+        3: 4,
+        4: 5,
+    }
+Eg2: let obj2= { ..."hello" };
+    // OUTPUT //
+    obj2 ={
+        0: 'h',
+        1: 'e',
+        2: 'e',
+        3: 'l',
+        4: 'l',
+        5: 'o'
+    }
+-> In case of array and string the index becomes the key and the element becomes the pair in this way the key: value pair is maintained.
+
+# Rest 
+-> Allows a function to take an indefinite number of arguments and bundle them in an array.
+Eg: function sum (...args){
+    return args.reduce((add,el) => add+el);
+}
+
+# In js there is by default a variable(arguments) that stores all the arguments that we pass in it.
+Eg: function min (a,b,c,d){
+    console.log(arguments); //This variable stores all the value of the arguments used in this function.
+}
+// values that are used during the function call are stored in the this arguments variable.
+
+# Destructuring
+-> Storing values of array into multiple variables
+Eg: let name = ["tony","bruce","steve","peter"];
+let [winner, runnerup] =names;
+console.log(winner, runnerup); //"tony" "bruce"
+
+# Destructuring in objects
+-> const student = {
+    name: "Suraj",
+    class: 9,
+    age: 14,
+    subjects: ["hindi","english","math","science","social studies"],
+    username: "suraj124",
+    password: 12345,
+};
+const { username: user , password: pass, city: place = "Lucknow" } = student;
+console.log(user); //suraj124
+// here user and pass are the new names of the object keys username and password we can access it using this names.
+// we can also define a defaullt value for a variable like city we have given it default value as lucknow.
