@@ -1045,3 +1045,37 @@ const { username: user , password: pass, city: place = "Lucknow" } = student;
 console.log(user); //suraj124
 // here user and pass are the new names of the object keys username and password we can access it using this names.
 // we can also define a defaullt value for a variable like city we have given it default value as lucknow.
+
+# DOM (Document object model)
+-> The DOM represents a document with a logical tree.
+-> It allows us to manipulate/change webpage content (HTML Elements).
+
+# DOM (Document Object Model)
+EG: <body>
+       <div>
+          <h1>Todo</h1>
+       </div>
+       <ul>
+           <li>Eat</li>
+           <li>Code</li>
+           <li>Sleep</li>
+       </ul>
+    </body>
+// View its flow chat in DOM.png //
+
+# console.dir(document.all);
+-> This is used to return the HTMLAllCollection and HTMLAllCollection contains all the html elements that are present on the webpage.
+-> We can select the element using index and we can select that element and apply changes to it.
+
+# Selecting Elements
+   1. getElementById
+   ->Returns the element as an object or null (if not found).
+   Syntax: document.getElementById("idName");
+   // The element with the id as "id" will be selected. //
+   -> This value can be stored in a varible and can be used to apply changes in it.
+   Eg: let imgObj = document.getElementById("mainImg");
+   console.log(imgObj);
+
+   2. getElementByClassName
+   -> Returns the elements as an HTML collection or empty collection (if not found).
+   Syntax: getElementByClassName("className");
