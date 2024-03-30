@@ -1076,6 +1076,48 @@ EG: <body>
    Eg: let imgObj = document.getElementById("mainImg");
    console.log(imgObj);
 
-   2. getElementByClassName
+   2. getElementsByClassName
    -> Returns the elements as an HTML collection or empty collection (if not found).
    Syntax: getElementByClassName("className");
+   Eg: document.getElementsByClassName("oldImg");
+   -> If we try to select a class which is not used then this will return the empty HTMLCollection.
+
+   3. getElementByTagName
+   -> Returns the elements as an HTML collection or empty collection (if not found).
+   Syntax: document.getElementByTagName("p");
+   // This will select all the paragraph(<p>) tag present in the page .
+   -> If we try to select a tag which is not used in the creation of HTML page then we will get an empty HTMLCollection.
+
+# Query Selectors
+-> Allows us to use any CSS selector.
+Eg: 1. document.querySelector('p'); //Selects first p element
+2. document.querySelector('#myId'); //Selects first element with id = myId
+3. document.querySelector('.myClass'); //Selects first element with class = myClass
+4. document.querySelectorAll("p"); // Selects all p elements
+
+# Using properties & Methods
+-> innerText
+   -> Shows the visible text contained in a node.
+   Eg: document.querySelector("p").innerText = "abcd";
+
+-> textContent
+   -> Shows all the full text.
+   Eg: document.querySelector("p").textContent =
+
+-> innerHTML
+   -> Shows the full markup.
+   Eg: document.querySelector("p").innerHtml = "Hi, I am <b> Deepak Yadav </b>.";
+
+# Manupulating Attributes 
+Syntax: obj.getAttribute(attr);
+        obj.setAttribute(attr,val);
+-> These are also known as getters and setters .
+-> Getters & setters are used to get the value and set the value.
+
+# Manipulating style 
+-> To manipulate style using DOM we need to know that the styles can be edited using camel case in js
+Eg: In CSS: background-color 
+    In JS: backgroundColor
+-> style Property : Using this all the style changes are applied as inline style none of these changes are applied as  
+-> obj.style: This will tell us about the style of the object.
+-> obj.style.color = 'green'; this will set the color of the object as green.
