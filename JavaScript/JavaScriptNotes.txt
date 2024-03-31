@@ -1118,6 +1118,41 @@ Syntax: obj.getAttribute(attr);
 -> To manipulate style using DOM we need to know that the styles can be edited using camel case in js
 Eg: In CSS: background-color 
     In JS: backgroundColor
--> style Property : Using this all the style changes are applied as inline style none of these changes are applied as  
--> obj.style: This will tell us about the style of the object.
--> obj.style.color = 'green'; this will set the color of the object as green.
+
+   1. style Property : Using this all the style changes are applied as inline style none of these changes are applied as  
+   -> Syntax: obj.style //This will tell us about the style of the object.
+   -> obj.style.color = 'green'; this will set the color of the object as green.
+   
+   2. using classList
+   -> Syntax: obj.classList : This will show all the classes that are applied on the object.
+   Eg: obj.classList.add(): to add new classes
+       obj.classList.remove(): to remove classes 
+       obj.classList.contains(): to check if class exists. Gives value in true or false form.
+       obj.classList.toggle(): to toggele between add & remove. If the class is added then it will be removed if it was removed then it will be added.
+    
+    //We can also use setAttribute for this but setAttribute can apply only 1 property of the class to the HTML element.
+
+# Navigation
+   1. parentElement
+   -> This will tell us about the parent element of the element which use this method.
+   Syntax: obj.parentElement;
+   Eg: let h4 = document.querySelector('h4');
+       h4.parentElement; // This will return the parent element of h4.
+
+   2. children
+   -> This will return the child elements .
+   Syntax: obj.children;
+   Eg: h4.children; // This will return the children of h4
+
+   3. previousElementSibiling / nextElementSibiling
+   -> We can acces childrens using indexes or we can also use previousElementSibling and the nextElementSibiling
+   Syntax: obj.previousElementSibling;
+           obj.nextElementSibling;
+
+   # childElementCount
+   -> This will return the count of the child elemnts present .
+   Syntax: obj.childElementCount;
+
+# Adding Elements
+->
+

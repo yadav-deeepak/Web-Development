@@ -26,3 +26,11 @@ body {
   #description {
     background-color: antiquewhite;
   }
+  
+  .green{
+    color: greenyellow;
+  }
+
+  .yellowBg{
+    background-color: yellow;
+  }

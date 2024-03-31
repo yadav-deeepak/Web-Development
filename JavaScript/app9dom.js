@@ -9,8 +9,8 @@ for(let i=0;i<smallImages.length;i++){
 
 console.dir(document.querySelector("h1"));
 
-let heading = document.querySelector('h1');
-heading.innerHTML = `<u>${heading.innerText}</u>`;
+ let heading = document.querySelector('h1');
+ heading.innerHTML = `<u>${heading.innerText}</u>`;
 
 // let img = document.querySelector('img');
 // console.log(img.getAttribute('id'));
@@ -29,3 +29,15 @@ let links = document.querySelectorAll(".box a");
 for(link of links){
    link.style.color = "purple"; //Inline style
 }
+
+let box = document.querySelector('.box');
+console.log(box.classList);
+box.classList.add("yellowBg");
+console.log(box.classList);
+
+let h4 = document.querySelector('h4');
+console.log(h4.parentElement);
+
+let ul = document.querySelector('ul');
+console.log(ul.children);
+console.log(ul.children[2].previousElementSibling);
