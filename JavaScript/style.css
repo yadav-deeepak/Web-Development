@@ -34,3 +34,7 @@ body {
   .yellowBg{
     background-color: yellow;
   }
+  .divbox{
+    border: 1px solid black;
+    background-color: pink;
+  }

@@ -1126,8 +1126,11 @@ Eg: In CSS: background-color
    2. using classList
    -> Syntax: obj.classList : This will show all the classes that are applied on the object.
    Eg: obj.classList.add(): to add new classes
+       newDiv.classList.add('divbox');
        obj.classList.remove(): to remove classes 
+       newDiv.classList.remove('divbox');
        obj.classList.contains(): to check if class exists. Gives value in true or false form.
+       newDiv.classList.contains('divbox');
        obj.classList.toggle(): to toggele between add & remove. If the class is added then it will be removed if it was removed then it will be added.
     
     //We can also use setAttribute for this but setAttribute can apply only 1 property of the class to the HTML element.
@@ -1154,5 +1157,57 @@ Eg: In CSS: background-color
    Syntax: obj.childElementCount;
 
 # Adding Elements
-->
+-> To add a new element first we need to create a new element and then we will append it.
+-> document.createElement('p')
+   -> This is used to create a new element.
+   Eg: let newP = document.createElement('p');
 
+-> appendChild(element)
+   -> To use this first we have to select the parent then we can appendChild in it.
+   Eg: let body = document.querySelector('body');
+       body.appendChild(newP);
+
+-> append(element)
+   -> Using this we can append element, string or new text.
+   Eg: body.append(newP); 
+      newP.append("this is new text");
+
+-> prepend(element)
+   -> Append and prepend are same the only difference is that prepend will add the element in the start.
+   Eg: body.prepend(newP); //This will add the element in the start of the body .
+
+-> insertAdjacent(position, element)
+   -> Using this we can decide that where we want to add the element and what we want to add .
+  
+   # position
+   -> A string representing the position relative to the targetElement; must match (case-insensitively) one of the following strings:
+
+   -> 'beforebegin': Before the targetElement itself.
+   -> 'afterbegin': Just inside the targetElement, before its first child.
+   -> 'beforeend': Just inside the targetElement, after its last child.
+   -> 'afterend': After the targetElement itself.
+   
+   # element
+   -> The element to be inserted into the tree.
+
+   Eg: let btn = document.createElement('button');
+       btn.innerHTML = "New button";
+       let p = document.querySelector('p');
+       console.log(btn);
+       console.log(p);
+       p.insertAdjacentElement('beforebegin', btn); //This will add the button before the paragraph starts.
+       p.insertAdjacentElement('afterbegin', btn); //This will add the element after the paragraph starts.At the start in the paragraph
+       p.insertAdjacentElement('beforeend', btn); //This will add the element before the paragraph end at the end in the paragraph
+       p.insertAdjacentElement('afterend', btn); //This will add the element after the paragraph ends.
+
+# Removing Elements
+-> To remove any element we use this method.
+
+-> removeChild(element);
+   -> It works exactly like appendChild.
+   Eg: let body = document.querySelector('body');
+       body.removeChild('btn');
+
+-> remove(element);
+   -> This works exactly like append.
+   Eg: body.remove('btn');
