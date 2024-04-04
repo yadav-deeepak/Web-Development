@@ -1241,4 +1241,38 @@ Eg: <button onclick="console.log('button was clicked')">click me</button>
    })
    -> There are various events that can be added using this method. Learn more about it on mdn.
 
+# this in Event listeners
+-> When 'this' is used in a callback of event handler of something , it refers to that something.
+Eg: let btn1 = document.querySelector("#btn1");
+   btn1.addEventListener("click", function(){
+    console.log(this.innerText);
+   }); //it will return the button/btn1 obj.
+-> We can also access the inner functions of button object.
+-> 'this' can be usefull when we want to use single event listener on multiple objects.
+
+# Note: The callback function n addEventListener has a default parameter as event.
+-> This event argument has many properties inside it.
+
+# Keyboard Events
+-> keydown
+   -> This event will occur when the key is pressed.
+   Eg: let inp = document.querySelector("input");
+inp.addEventListener("keydown",function(){
+    console.log("Key was pressed");
+});
+-> keyup
+   -> This event will occur when the key is released.
+   Eg: let inp = document.querySelector("input");
+inp.addEventListener("keyup",function(){
+    console.log("Key was released");
+});
+-> We can track the key and code of the button pressed using the function's event argument.
+-> Keyboard event has 2 useful properties
+1. code: code return the particular code of the key.
+Eg: code: 'Semicolon'
+
+2. key: key has the actual value of the key that is pressed and displayed on the screen.
+Eg: key: ';'
+
+
 
