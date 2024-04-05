@@ -1274,5 +1274,34 @@ Eg: code: 'Semicolon'
 2. key: key has the actual value of the key that is pressed and displayed on the screen.
 Eg: key: ';'
 
+# Form Events 
+-> event.preventDefault: When we want to prevent the default action an element then we use this.It will prevent it from that default action 
+Eg:  event.preventDefault();
+
+# Extracting form data 
+-> To get the data from the form or input tag we use obj.value this will return the value entered by the user.
+Eg:let inp = document.querySelector("input");
+    console.dir(inp.value);
+-> We can also access elements using the form object itself.
+-> formObj.elements; // this will contain the collection of all the form elements.
+->formObj.elements[0]; //return the 0th element means first element of the form.
+
+# More Events
+-> change event 
+   -> The change event occurs when the value of an element has been changed ( only works on <input>,<textarea> and <select> elements).
+   Eg: user.addEventListener("change", function(){
+    console.log("Change Event");
+    console.log("Final value :",user.value);
+    }); // change tracks the changes between final and initial stage.
+
+
+-> input event
+   -> The input event fires when the value of an <input>,<select> or <textarea> element has been changed.
+   -> Note: only character keys trigger the input event non character keys such as shift ctrl etc don't trigger them.
+   Eg: user.addEventListener("input", function(){
+    console.log("Input event");
+    console.log("Final value :",user.value);
+   }); //input event tracks the small changes as we enter letter it will track the changes
+
 
 
