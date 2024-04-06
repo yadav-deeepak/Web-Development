@@ -1303,5 +1303,49 @@ Eg:let inp = document.querySelector("input");
     console.log("Final value :",user.value);
    }); //input event tracks the small changes as we enter letter it will track the changes
 
+# Event Bubbling
+-> When create event listeners for nested html elements then event bubbling occurs. 
+-> When we click on an element it triggers its event its parents and upper level events as well this phenomenon is called as event bubbling .
+Eg: let div = document.querySelector("#box");
+    let ul = document.querySelector("ul");
+    let lis = document.querySelectorAll("li");
+
+    div.addEventListener("click",function(){
+        console.log("div was clicked");
+    });
+
+    ul.addEventListener("click", function(){
+        console.log("ul was clicked");
+    });
+
+    for (li of lis){
+        li.addEventListener("click", function(){
+            console.log("li was clicked");
+        });
+    }
+    // When we click on div we get div was clicked 
+    // When we click on ul we get div was clicked and ul was clicked.
+    // When we click on li we get li was clicked ul was clicked div was clicked.
+    // When we click on an element it triggers its event its parents and upper level events as well this phenomenon is called as evnet bubbling .
+-> To stop this event bubbling we can use the event object method named stopPropagation().
+Eg:  ul.addEventListener("click", function(event){
+        event.stopPropagation();
+        console.log("ul was clicked");
+    });
+
+# Event Delegation
+-> When we have added a new element on the page and the event listeners were already created for them but those same event listeners doesn't apply on this new created element and if we want that same event listeners get applied to the new created element then we use event delegation.
+-> Event delegation is a type of programming in which we use event bubbling.
+-> If we want any event listener to be added on the new child element then we create the same event listener for its parent element as well so that when the new child element will be created then because of the event bubbling the parents event will be applied to its child itself. 
+
+# event.target 
+-> It tells us what is  responsible for activating the event .
+Eg: ul.addEventListener("click",function(event){
+    console.log(event.target);
+    console.log("Button was clicked");
+});  
+// event.target.nodeName : this used to tell us about the node that triggers that event.
+
+
 
 
