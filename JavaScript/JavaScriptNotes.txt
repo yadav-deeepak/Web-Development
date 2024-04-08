@@ -1346,6 +1346,21 @@ Eg: ul.addEventListener("click",function(event){
 });  
 // event.target.nodeName : this used to tell us about the node that triggers that event.
 
+# ADVANCED JAVASCRIPT CONCEPTS
 
+# Call stack
+-> It is basically a DS that finds out which function is getting executed at the moment and it also has the info of how the function were called ( order of function call ).
+-> Eg: function hello(){
+    console.log("Hello");
+}
+
+function demo(){
+    hello();
+}
+
+demo();
+-> Function calls are stored in stack it means that the function that enters last in it will be executed first.
+-> As we call demo the function call of demo will be stored in the call stack then demo function is calling hello() so hello functions call will be stored in call stack.
+-> Then first hello function will be executed because it entered last and then demo() will be executed. 
 
 
