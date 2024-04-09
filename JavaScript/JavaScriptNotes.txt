@@ -1363,4 +1363,13 @@ demo();
 -> As we call demo the function call of demo will be stored in the call stack then demo function is calling hello() so hello functions call will be stored in call stack.
 -> Then first hello function will be executed because it entered last and then demo() will be executed. 
 
+# Breakpoints
+-> We can track the call stack of js through browser using breakpoints. 
+-> It is generally used for debugging.
+-> To add a breakpoint inspect<sources<app.js
+-> Then to add breakpoint we just need to click on the line on which we want to add breakpoint.
+-> We can use the arrow buttons that are present on the page to see the next function call. This way we can find errors easily.
+
+# JS is single threaded
+-> 
 
