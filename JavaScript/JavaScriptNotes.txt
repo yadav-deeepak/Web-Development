@@ -1371,5 +1371,97 @@ demo();
 -> We can use the arrow buttons that are present on the page to see the next function call. This way we can find errors easily.
 
 # JS is single threaded
--> 
+-> JS is a single threaded language. Only one thing of a code can be executed at a particular interval of time.
+-> To deal with this single threaded nature of js there are several things in js .
+Eg: callbacks
+    setTimeout: Eg: setTimeout(function(){
+        console.log("Apna College");
+    },2000);
+    console.log("hello ...");
+    // Program will not wait for setTimeout to execute its function it will execute next statement first then after 2sec "Apna College" will be printed.
+    // You might be thinking when js has a single threaded nature then how is it doing two work at same time waiting and executing the "hello" this is because the waiting work is done by browser it is not the work of js.
+    // As the waiting time ends browser adds the setTimeout function into the call stack and those functions will be executed.
+    // When we use functions like setTimeout in our code we make our js code asynchronous.
+-> Even though js is a single threaded language it has asynchronous nature.
 
+# Callback Hell
+-> Due to the asynchronous nature of js the first problem that comes is known as callback hell.
+Eg:  let h1 = document.querySelector("h1");
+
+function changeColor(color,delay,nextColorChange){
+    setTimeout(()=>{
+        h1.style.color = color;
+       if(nextColorChange) nextColorChange();
+    },delay);
+    
+}
+
+
+changeColor("red",1000,()=>{
+    changeColor("orange",1000,()=>{
+        changeColor("green",1000);
+    });
+});
+// Here the callback nesting is taking place this nesting of callbacks is known as callback hell.
+-> To save us from the callback hell we use promises and async and await keywords about which we will learn further.
+
+# Promises 
+-> The promises object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+-> Promise object has resolve and reject  callbacks where resolve is for success callback and reject is for failure callback.
+-> For any Promise we have multiple states:
+    -> pending: In this state we dont know if the promise if fulfilled or rejected .
+    -> rejected: In this state the promise was rejected it was not fulfilled.
+    -> fulfilled: In this state the promise has been fulfilled successfully.
+-> Promises also have two methods :
+   -> then() : if we want to execute anything after the promise has been fulfilled then we use .then()
+   -> catch() : if we want to execute anything if the promise has been rejected then we use .catch()
+   Eg: let request= savetoDB("Hello Love"); // request is Promise object
+      request.then(()=>{
+          console.log("Promise was resolved");
+        })
+        .catch(()=>{
+           console.log("Promise was rejected");
+        });
+// ANOTHER WAY TO USE IT //
+savetoDB("Hello Love") 
+.then(()=>{
+    console.log(request);
+})
+.catch(()=>{
+    console.log(request);
+});
+
+# Promise chaining 
+-> When we group various then() together it is called as promise chaining.
+Eg: savetoDB("Hello Love") 
+.then(()=>{
+    console.log("DaTA 1 SAVED");
+    return savetoDB("Hello master");
+})
+.then(()=>{
+    console.log("Data 2 saved");
+})
+.catch(()=>{
+    console.log("Rejected");
+}); // This catch can be used for both data1 and data2 .
+-> We dont need mutiple catch statement single catch statement can be used to catch all the errors.
+
+# Results and Errors in Promises
+-> Promises are rejected and resolved with some data(valid results or errors).
+-> We can put result argument in then() method which will store the result of the promise.
+-> We can use error argument in catch() method which will stored the error of promise.
+-> Result will return the value of resolve and error will return the value of reject.
+Eg: savetoDB("Hello Love") 
+.then((result)=>{
+    console.log("DaTA 1 SAVED");
+    console.log(result);
+    return savetoDB("Hello master");
+})
+.then((result)=>{
+    console.log("Data 2 saved");
+    console.log(result);
+})
+.catch((error)=>{
+    console.log("Rejected");
+    console.log(error);
+});
