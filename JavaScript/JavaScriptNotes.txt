@@ -1465,3 +1465,71 @@ Eg: savetoDB("Hello Love")
     console.log("Rejected");
     console.log(error);
 });
+
+# Async Functions (app12.js)
+  # async & await keywords 
+
+  # Async Keyword
+  -> Async keyword creates an async function 
+  -> Async functions by default returns a promise.
+  Eg: async function greet(){
+    return "Hello world"; //returns a promise
+  }
+  -> Creating an arrow function as async function.
+    Eg: let hello = async() => {}; // returns a promise
+  -> When the function is executed normally then it returns a promise state as fulfilled and the return value of the function is stored in PromiseResult.
+  -> When the fucntion not executed normally an error has been occurred then it will return the  promise with PromiseState as rejected and PromiseResult as error value.
+  // We can use the throw keyword to define the value that will be returned when an error has occurred.
+  Eg: throw "Some random error";
+  -> We can use then() & catch() method on the async functions as it returns promise.
+
+  # Await Keyword
+  -> Pauses the execution of its surrounding async function until the promise is settled (resolved / rejected).
+  Eg: async function show(){
+    await colorChnage("voilet",1000);
+    await colorChnage("indigo",1000);
+    await colorChnage("green",1000);
+    await colorChnage("yellow",1000);
+    await colorChnage("orange",1000);
+
+    return "done";
+  }
+
+  # Handling rejections with Await
+  -> We need to put all the code that might throw an error in the try and then it will catch the error but the exection of the code that is not dependent on try block code  will not be affected by the error.
+  Eg: async function demo(){
+
+    try{
+        await changeColor("red",1000);
+        await changeColor("orange",1000);
+        await changeColor("green",1000);
+        await changeColor("blue",1000);
+    }
+    catch(err){
+        console.log("Error caught");
+        console.log(err);
+    }
+    
+
+    let a=5;
+    console.log(a);
+    console.log("New number: ",a + 3);
+}
+// This will catch the error and return it but it will not stop the execution of the code that is not dependent on promise.
+
+
+# API 
+-> It stands for application programming interface.
+-> It acts as a means of communication between two software.
+-> The API's the uses http protocols for the communication is called as web API's.
+-> As a response API returns data that is in JSON format.
+-> API url is known as endpoint sometimes it is normal or sometime it will be with key or paid .
+-> For using API sometimes we might need key (key is given to us by the owner when we login to the site.)
+-> Some of the API might be paid we have to pay to use it. 
+
+-> Some random API's 
+   -> https://catfact.ninja/fact (sends random cat facts)
+   -> https://www.boredapi.com/api/activity (sends an activity to do when bored)
+   -> https://dog.ceo/api/breeds/image/random (sends cute dog pictures)
+
+-> To use API first read its documentation then use it.
