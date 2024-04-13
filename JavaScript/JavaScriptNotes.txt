@@ -1533,3 +1533,37 @@ Eg: savetoDB("Hello Love")
    -> https://dog.ceo/api/breeds/image/random (sends cute dog pictures)
 
 -> To use API first read its documentation then use it.
+
+# JSON 
+-> JavaScript Object Notation  www.json.org 
+Eg:  {
+    "string" : "Hi",
+    "number" : 25,
+    "boolean" : true,
+    "object" : {"name": "Suraj", "age": 24},
+    "array" : ["Hello",5,false,{"key": "value", "number": 6}]
+}
+-> We have various online json validator that tells us if the json data is right or not.
+-> Undefined values are not allowed in JSON format.
+
+# Accessing data from JSON 
+-> We get data in json format in form of string.
+Eg: let jsonRes = '{"fact":"When a domestic cat goes after mice, about 1 pounce in 3 results in a catch.","length":76}';
+-> JSON.parse( data ) Method 
+   -> To parse a string data into a JS object
+   Eg: let validRes = JSON.parse(jsonRes); // Converts the data from string format to JS object format.
+
+-> JSON.STRINGIFY( json ) Method 
+   -> To parse a JS object data into JSON
+   Eg: let student ={
+    name: "Viper",
+    marks: 99,
+}; //To convert it in JSON format 
+
+let jsonFormat = JSON.stringify(student);
+console.log(jsonFormat);
+
+# Testing API requests
+* TOOLS 
+  -> Hoppscoth
+  -> Postman

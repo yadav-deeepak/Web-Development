@@ -1,18 +1,18 @@
 console.log("Working");
 
-async function greet(){
-    throw "Weak connection";
-    return "hello!";
-}
+// async function greet(){
+//     throw "Weak connection";
+//     return "hello!";
+// }
 
-greet()
-.then((result)=>{
-    console.log("Promise was resolved");
-    console.log("Result was: ",result);
-})
-.catch((err)=>{
-    console.log("Promise was rejected: ", err);
-});
+// greet()
+// .then((result)=>{
+//     console.log("Promise was resolved");
+//     console.log("Result was: ",result);
+// })
+// .catch((err)=>{
+//     console.log("Promise was rejected: ", err);
+// });
 
 // Creating arrow function as async function 
 // let demo = async () => {
@@ -78,3 +78,21 @@ async function demo(){
 }
 // If promise gets rejected then the work that is not dependent on promise will also not be done 
 // demo();
+
+let jsonRes = '{"fact":"When a domestic cat goes after mice, about 1 pounce in 3 results in a catch.","length":76}';
+
+console.log(jsonRes);
+
+// to convert this data into valid format
+
+let validRes = JSON.parse(jsonRes); // Converts the data from string format to JS object format.
+console.log(validRes); 
+console.log(validRes.fact); 
+
+let student ={
+    name: "Viper",
+    marks: 99,
+}; //To convert it in JSON format 
+
+let jsonFormat = JSON.stringify(student);
+console.log(jsonFormat);
