@@ -1565,5 +1565,109 @@ console.log(jsonFormat);
 
 # Testing API requests
 * TOOLS 
-  -> Hoppscoth
+  -> Hoppscotch
   -> Postman
+
+# How to use Hoppscotch 
+-> Select an appropriate method GET,PUT,POST,PATCH etc.
+-> Copy and paste the url in the url section thne click on sent button.
+-> We will get the response in the response window.
+
+# Ajax 
+-> It stands for Asynchronous JavaScript and XML 
+-> The process of sending request and getting response is an asynchronous process.
+-> The process of request and response is known as Ajax calls.
+
+# HTTP Verbs 
+-> Example: 
+   -> GET : When we get info from the API then we use GET req .
+   -> POST : When we want to post something then we use POST req.
+   -> DELETE : When we want to delete something then we use DELETE .
+
+
+# Status codes 
+-> Example: 
+   -> 200 - OK 
+   -> 404 - Not found 
+   -> 400 - Bad request 
+   -> 500 - Internal server error
+
+# Add information in URLs
+* Query Strings 
+-> When we want to send the additional information with the url we use query strings .
+-> https://www.google.com/search?q=harry+porter 
+// Here q is key and  harry+porter is value.
+-> ?name=shraddha&marks=95
+ 
+* Variable
+-> We can also pass the full route of the data / or by passing the variable.
+Eg: https://api.potterdb.com/v1/movies/1483090c-1513-4bf1-83c6-cc00130f4305
+//Here after movies this part is "id" : 1483090c-1513-4bf1-83c6-cc00130f4305
+
+* Http Headers
+-> Headers are used to supply the additional information in bothj request and response.
+-> To set headers we can go to the headers section there we can add header to access data.
+Eg: https://icanhazdadjoke.com/ 
+// This API has Accept header that can be used to get data in different formats by default it sends data in html format .
+// If we want to get data in JSON Format we can add header as Accept & value as application/json then we can get the data in json format.
+-> Generally we send meta data(data about data) with headers.
+
+# Our first request 
+* using fetch 
+-> fetch() returns a promise in form of response. So we can use promise methods with fetch.
+Eg: let url = "https://catfact.ninja/fact";
+
+fetch(url)
+.then((res)=>{
+    console.log(res);
+    return res.json(); //parsing data into json format
+})
+.then((data)=>{
+    console.log(data.fact);
+})
+.catch((err)=>{
+    console.log("Error :",err);
+});
+// Here first we have used fetch(URL) then we get a promise to get the data first we parse it into json fomat and then we used promise chaining .
+
+# Using fetch with async and await 
+-> async function getFacts(){
+    try{
+        let res = await fetch(url);
+        let data = await res.json();
+        console.log(data);
+    }
+    catch(e){
+        console.log("Error: ",e);
+    }
+}
+
+# Axios 
+-> Library to make HTTP requests
+-> To use it copy the cdn link from axios github page and then use it. Paste it in html folder before app.js .
+-> Why we need to use axios when we have fetch in fetch the data comes in readable format an we have to convert/parse it to json format but in axios we don't need to convert/parse the data 
+Eg: async function getFacts(){
+    try{
+        let res = await axios.get(url);
+        console.log(res);
+    }catch(e){
+        console.log("Error :", e);
+    }
+}
+
+# Sending headers with API requests
+-> To pass data we create an object with key as headers and value as an object with key as headerName and value .
+-> To pass it with API req we will pass it as a 2nd argument with the API request.
+-> Example:
+let url3 = "https://icanhazdadjoke.com/";
+async function getJokes(){
+    try{
+        const config ={headers: {Accept: "application/json"} };
+        let res = await axios.get(url3,config);
+        console.log(res.data.joke);
+    }catch(e){
+        console.log("Error: ", e);
+    }
+}
+
+# Updating Query Strings
