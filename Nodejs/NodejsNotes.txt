@@ -1,0 +1,36 @@
+//        BACKEND DEVELOPMENT       //
+# Node.js 
+-> JavaScript Runtime Environment 
+-> It is used for server side programming .
+-> Node.js is not a language , library or framework.
+Eg: VS Code is built on Node.js. 
+
+# Node REPL (Read Eval Print Loop)
+-> As soon as we enter the node  we enter into the js runtime environment where all the terminal commands will not work but all the js commands will run in it .
+-> .help gives us commands 
+
+# Node Files 
+# How to run JS files using Node?
+-> Firstly we have to cd into the folder in which the JS file is present.
+-> node fileName.js in terminal to execute js  file using node.
+
+# Process 
+-> Process: This object provides information about ,and control over , the current Node.js process. 
+
+-> Process.argv: Returns an array containing the command-line arguments passed when the node.js process was launched.
+-> When we dont pass any argument then process.argv returns an array with 2 values.
+Eg: When node script.js was run in terminal 
+Output: [
+  'C:\\Program Files\\nodejs\\node.exe',
+  'C:\\Users\\deepa\\OneDrive\\Desktop\\MERN Stack\\Nodejs\\script.js'     
+]
+-> The first value  'C:\\Program Files\\nodejs\\node.exe' this is the executable path of the node.
+-> The second value 'C:\\Users\\deepa\\OneDrive\\Desktop\\MERN Stack\\Nodejs\\script.js' this is the path of the file that we are running.
+
+-> But when we pass argument with it Eg: node script.js hello bye // here hello and bye are argument passed when node.js process was launched
+-> Output: [
+  'C:\\Program Files\\nodejs\\node.exe',
+  'C:\\Users\\deepa\\OneDrive\\Desktop\\MERN Stack\\Nodejs\\script.js',
+  'hello',
+  'bye'
+]
