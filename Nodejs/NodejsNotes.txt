@@ -34,3 +34,46 @@ Output: [
   'hello',
   'bye'
 ]
+
+# module.exports 
+-> requiring files 
+-> require() - a built in function to include external modules that exist in separate files. 
+
+-> module.exports - a special object that contains all the thing that the file wants to send to another files .
+
+Note :
+-> Using module.export we can export string number and file. 
+-> when the file is not exporting anything and we require it then module.export will send an empty object.
+
+Eg -: File Name : math.js 
+const sum = (a,b) => a+b;
+const mul = (a,b) => a*b;
+const g = 9.8;
+const PI = 3.14;
+let obj = {
+    sum: sum,
+    mul: mul,
+    g: g,
+    PI: PI
+};
+module.exports = obj; //Here this file is exporting obj to other files.
+
+File Name : script.js
+const math = require("./math"); //by using require keyword we can require and use the value that we have exported in math.js in script.js
+
+console.log(math.sum(2,2)); // We will get the value that we have exported in our math.js file as output.
+
+-> We can also access the values of obj with (.) operator.
+
+# There are generally two way to export 
+1: we can export it by creating object and adding all the functions within it like we have done in above example.
+2: we can directly import the function or value by writing export in front of it .
+Eg: File Name: math.js 
+module.export.sum = (a,b) => a+b;
+module.exports.mul = (a,b) => a*b;
+module.exports.g = 9.8;
+module.exports.PI = 3.14;
+-> We can simply access it by requiring it in the other module.
+-> We can exculde writing module also then also it will work.
+Eg: exports.sum = (a,b) => a+b;
+    exports.mul = (a,b) => a*b;
