@@ -1,8 +1,39 @@
-const math = require("./math"); //by using require keyword we can require and use the value that we have exported in math.js in script.js
+import {sum,PI} from "./math.js";
+import { generate } from "random-words";
 
-console.log(math.sum(2,2)); // We will get the value that we have exported in our math.js file as output.
-console.log(math.mul(2,4));
-console.log(math.PI);
+// console.log(sum(3,5));
+console.log(generate());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const math = require("./math"); //by using require keyword we can require and use the value that we have exported in math.js in script.js
+
+// console.log(math.sum(2,2)); // We will get the value that we have exported in our math.js file as output.
+// console.log(math.mul(2,4));
+// console.log(math.PI);
+
+// const info = require("./Fruits");
+// console.log(info[1].name);
 
 
 

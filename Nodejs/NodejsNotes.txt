@@ -36,7 +36,7 @@ Output: [
 ]
 
 # module.exports 
--> requiring files 
+## requiring files 
 -> require() - a built in function to include external modules that exist in separate files. 
 
 -> module.exports - a special object that contains all the thing that the file wants to send to another files .
@@ -77,3 +77,80 @@ module.exports.PI = 3.14;
 -> We can exculde writing module also then also it will work.
 Eg: exports.sum = (a,b) => a+b;
     exports.mul = (a,b) => a*b;
+
+## requiring directories 
+-> To include a directory we need to create a special file in the directory with the name index.js .
+-> The index.js directory will require all the values that are to be exported from the fruits directory.
+-> Then we can require the fruit directory directly in any of our file.
+Eg: Directory : Fruits with 3 files apple.js , banana.js , orange.js 
+-> Create index.js file in the fruits directory 
+// index.js (code)
+const apple = require("./apple");
+const banana = require("./banana");
+const orange = require("./orange");
+
+let fruits =[apple,banana,orange];
+
+module.exports = fruits;
+-> Here we have required all the values that are to be exported from the fruits directory now we will require the Fruits directory in our script.js file.
+
+//script.js (code) 
+const info = require("./Fruits");
+console.log(info);
+console.log(infor[1].name); //banana
+
+-> Here the require will search for the entry point in the directory and the index.js will act as the entry point .
+-> This is how we will acquire the directory using module.exports() & require.
+
+
+# NPM (Node Package Manager)
+-> It is the standard package manager for the Node.js
+-> Developers from all over the world share and use packages for development.
+-> We can say that npm is the library of packages.
+-> npm is a a command line tool .
+-> Package is someone else's written code which we can use.
+Eg: Express , react are npm packages.
+
+# Installing Packages 
+-> To install an npm package we use
+Syntax: npm install <-package name->
+-> To use the installed npm package we need to create index.js file inside thesame folder in which our npm packages are installed.
+
+-> Whenever we install npm package we get node_modules directory , package.json & package-lock.json files.
+  
+  -> node_modules: The node_modules folder contains every installed dependency for your project. 
+
+  -> package-lock.json: It records the exact version of every installed dependency ,including its sub-dependencies and their versions.
+
+  -> package.json: The package.json file contains descriptive and functional metadata about a project , such as a name ,version and dependencies.
+  -> If we have package.json then we dont need node_modules we can install it anywhere anytime.
+  -> If our node_modules folder gets deleted and we have package.json then we can simply install all the node modules in it we just have to run the npm install command 
+  -> We can also create our own package.json we have to use 
+  npm init  //npm initialize
+
+# Local Vs Global 
+-> Till now we were installing our packages locally .
+-> Locally means we can use it only inside the directory in which we have installed it. It is the best practice we should always try to install the packages locally .
+-> To install a package globally we just need to add a flag -g 
+Eg: npm install -g <-packageName->
+    npm link <-packageName->
+
+# require V/S import 
+-> We can't selectively load only the pieces we need with require but with import , we can selectively load only the pieces we need , which can save memory
+-> Loading is synchronous for 'require' but can be asynchronous for 'import'.
+Eg: import { sum } from "./math.js"; 
+-> To export we use export keyword in front of the value or function that we want to export.
+Eg: //math.js file
+export const sum = (a,b) => a+b;
+export const mul = (a,b) => a*b;
+export const g = 9.8;
+export const PI = 3.14;
+
+-> To use import we have to update the "type": "module" in the package.json file .
+Eg: script.js file 
+import {sum,PI} from "./math.js";
+console.log(sum(3,5));
+
+-> Featurewise import is relatively better than require.
+
+Note : In our entire project either we use import or we use require we don't use both.
