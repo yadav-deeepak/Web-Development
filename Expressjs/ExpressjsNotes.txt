@@ -1,0 +1,64 @@
+# Library v/s Framework 
+-> Library : A library is a collection of pre written code that can be used to perform specifiic tasks.
+Eg: axios 
+
+-> Framework : A framework is a set of pre written code that provides a structure for developing software applications .
+Eg: express 
+
+# Express 
+-> A Node.js web application framework that helps us to make web applications .
+-> Express is a npm package that we install and use for server side programming.
+-> It is used for server side programming.
+-> Express has four major uses:
+   1. listen for incoming requests.
+   2. It parses data according to Node.js 
+   3. Matches responses with routes.
+   4. Helps in sending a suitable response.
+
+# Getting started with Express 
+-> Eg: const express = require ("express");
+       const app = express();
+
+       let port = 8080; 
+       app.listen(port,()=>{
+        console.log('app listening on port ${port}`);
+       });
+// Here when we run this code then server will start listening to the requests on the port 8080 continously to stop it we need to press ctrl+c in the terminal .
+
+# How can we send request on this server ?
+-> To send request on this server we need to open localhost:3000 on our browser.
+Note -> Before sending request to the server make sure to start the server 
+     -> Go to the directory in which your server file is present use node filename.js to run the port .
+-> If we send request without starting the server then it will show the message site can't be reached.
+
+# How to send respone to the server ?
+# app.use 
+-> Eg: app.use((req,res)=>{
+    console.log("New incoming request");
+});
+-> Now when we restart our server and open the localhost:3000 then we can see the message written in our terminal 'New incoming request' now we know that requests are recieved .
+
+# Sending responses 
+-> Whenever we send a req to a browser we send http req which are in text based req.
+-> Express converts/parses it to req object. This is the second work of express parsing the requests.
+-> To send response we use response(res) object.
+-> res.send([body]) : sends the http response.
+-> The body parameter can be a Buffer object, a String, an object, Boolean, or an Array. For example:
+    1. res.send(Buffer.from('whoop'))
+    2. res.send({ some: 'json' })
+    3. res.send('<p>some html</p>')
+    4. res.status(404).send('Sorry, we cannot find that!')
+    5. res.status(500).send({ error: 'something blew up' })
+# Sending response Eg: We can send string ,object ,html etc as a response .
+-> app.use((req,res)=>{
+    console.log("request recieved");
+    res.send("This is a basic response");
+});
+
+# Routing
+
+
+# Solving Hoppscotch problem
+-> If you are new to hoppscotch then you can't open localhost:3000 and see the response on the hoppscotch .
+-> To solve this problem we have to go to the github link and install the google extension (Hoppscotch browser extension.) to solve this problem .
+-> Refresh and select the intercepter option and set it to the third option then again refresh it this will solve the problem.
