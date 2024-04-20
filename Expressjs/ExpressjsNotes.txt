@@ -35,7 +35,7 @@ Note -> Before sending request to the server make sure to start the server
 # app.use 
 -> Eg: app.use((req,res)=>{
     console.log("New incoming request");
-});
+});// app.use method is used to listen to all the requests.
 -> Now when we restart our server and open the localhost:3000 then we can see the message written in our terminal 'New incoming request' now we know that requests are recieved .
 
 # Sending responses 
@@ -56,9 +56,57 @@ Note -> Before sending request to the server make sure to start the server
 });
 
 # Routing
+-> Generally in website we have different different things available on different routes.
+-> It is a process of selecting a path for traffic in a network or between or across multiple networks.
+-> app.use work is to listen to all the requests.
+-> Only single response can be send for a single path.
+-> "/" represents the path of the home page.
+Eg: app.get("/apple",(req,res)=>{
+    res.send({
+        name: "apple",
+        color: "red",
+    });
+});
 
+app.get("*",(req,res)=>{
+    res.send("This path doesn't exist");
+});//when all of the path doesn't match then this path will be executed.
 
 # Solving Hoppscotch problem
 -> If you are new to hoppscotch then you can't open localhost:3000 and see the response on the hoppscotch .
 -> To solve this problem we have to go to the github link and install the google extension (Hoppscotch browser extension.) to solve this problem .
 -> Refresh and select the intercepter option and set it to the third option then again refresh it this will solve the problem.
+
+# Nodemon 
+-> To automatically restart server with code changes.
+npm install -g nodemon // install nodemon globally 
+Run using nodemon: nodemon index.js 
+
+// How does requests work and custom pages are generated ? 
+# Path Parameters 
+## req.params 
+-> req.params show the request parameters.
+-> Whenever we use variables we use it as a path parameters 
+-> app.get("/ig/:username",(req,res) => {
+    let { usename } = req.params;
+    res.send(`This account belongs to @${username}`);
+});
+-> We can also send multiple parameters .
+Eg: app.get("/:username/:id" ,(req,res) => {
+    console.log(res.params); 
+});
+-> If we send req http://localhost:3000/deepak/32  then we get output on console as // { username: 'deepak', id: '32' } value of id and username depends on the request.
+-> We can also store it and use it in our code.
+Eg: let { username ,id } = req.params;
+
+# Query strings 
+## req.query 
+app.get("/search",(req,res) => {
+    console.log(req.query);
+    res.send("no results");
+});
+Request : http://localhost:3000/search?q=apple&color=green 
+// Here q=apple&color=green  this is the query and we can group multiple queries using &.
+-> The query we send with our request is get stored in the req.query and we can use it to access it or store it in a variable .
+Eg: let { q } = req.query;
+res.send(`search results for query: ${q}`);
