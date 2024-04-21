@@ -81,6 +81,8 @@ app.get("*",(req,res)=>{
 -> To automatically restart server with code changes.
 npm install -g nodemon // install nodemon globally 
 Run using nodemon: nodemon index.js 
+-> We can run our file from any where we just have to metion the path 
+Eg: nodemon EJS/index.js // this will run the index.js file in the EJS directory.
 
 // How does requests work and custom pages are generated ? 
 # Path Parameters 

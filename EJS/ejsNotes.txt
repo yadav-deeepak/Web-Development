@@ -1,0 +1,40 @@
+// EJS(Embedded JavaScript Templates)
+# Templating 
+-> EJS(Embedded JavaScript Templates)
+-> EJS is a simple templating language that lets you  genrerate HTML markup with plain JavaScript.
+-> Whenever similar layouts are used in multiple pages the we simply create the template of the page and render the information in it.
+-> Install EJS : npm i ejs 
+
+# Using EJS 
+-> app.set("view engine","ejs"); //This will set the view engine as EJS
+
+app.get("/",(req,res)=>{
+    res.render("home.ejs"); // this will render the home.ejs page when the get request is made on the home page.
+});
+
+-> Using ejs we don't send responses we render responses.
+-> We use res.render to render changes and we render home.ejs file .
+-> We need to create a "views" folder in our EJS folder because view engine expects that all our templates should be present in the "views" folder.
+-> If we want we can set the name as something else but we use the default name(views).
+-> To create ejs template we save the file with .ejs extension.
+Eg: home.ejs . 
+//We will create a mix code of html and js in this home.ejs file.
+
+# How does res.render will know where the file is ?
+-> When the code is excuted then by default express will send the views folder and inside it , it will search for home.ejs folder.
+
+Note: If we start our server from any other directory then we will get error because express will search for the views folder in the directory from which the server has been started .
+-> To solve this :
+-> we need to require the path package and then set the views path .
+Eg: // index.js
+const path = require("path");
+app.set("views", path.join(__dirname,"/views"));
+
+
+# Views Directory 
+-> const path = require("path");
+app.set("views", path.join(__dirname,"/views"));
+// __dirname this includes the path of the index.js i.e; MERN/EJS/
+
+-> We are adding the views path in it .
+MERN/EJS/views using path.join we are joining these two and we are telling express the exact path of our views folder.
