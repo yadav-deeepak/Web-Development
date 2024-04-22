@@ -15,3 +15,15 @@ app.get("/",(req,res)=>{
 app.get("/help",(req,res)=>{
     res.send("This is the help page");
 });
+
+app.get("/rolldice",(req,res)=>{
+    let num = Math.floor(Math.random()*6)+1;
+    res.render("rolldice.ejs",{ diceVal: num });
+});
+
+app.get("/ig/:username",(req,res)=>{
+    let { username } =req.params;
+    const followers =["adam","Viper","Suraj","Harsh"];
+    console.log(username);
+    res.render("insta.ejs",{ username, followers});
+});

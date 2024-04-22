@@ -38,3 +38,44 @@ app.set("views", path.join(__dirname,"/views"));
 
 -> We are adding the views path in it .
 MERN/EJS/views using path.join we are joining these two and we are telling express the exact path of our views folder.
+
+# Interpolation Syntax 
+-> Interpolation refers to embedding expessions into marked up text.
+-> Using EJS we are going to make our code dynamic.
+
+# EJS tags
+-> <% 'Scriptlet' tag, for control-flow, no output
+-> <%_ ‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it
+-> <%= Outputs the value into the template (HTML escaped)
+-> <%- Outputs the unescaped value into the template
+-> <%# Comment tag, no execution, no output
+-> <%% Outputs a literal '<%'
+-> %> Plain ending tag
+-> -%> Trim-mode ('newline slurp') tag, trims following newline
+-> _%> ‘Whitespace Slurping’ ending tag, removes all whitespace after it
+
+# Passing data to EJS 
+Eg:
+app.get("/rolldice",(req,res) =>{
+    let num = Math.floor(Math.random()*6)+1;
+    res.render("rolldice.ejs",{ diceVal: num });
+});
+//rolldice.ejs 
+<h1>Your dice gave value: <%= diceVal %></h1>
+-> Here we are passing the value as a second parameter to res.render and we are passing it in the form of { key: value }
+-> We are adding it to our rolldice.ejs page using <%= key %>.
+
+# How to use conditional statements in EJS 
+// Adding conditions inside EJS 
+-> Eg:
+<% if(diceVal == 6){ %>
+<h2>Nice! Roll dice again.</h2>
+<% } %>
+// Here if the value of dice will be 6 then only this <h2> statement will be printed else not.
+
+# How to use loops in EJS?
+-> Eg:
+<% for(user of followers) { %>
+<li><%= users %>
+<% } %>  
+followers =["adam","Viper","Suraj","Harsh"]; // this followers are passed in index.js  while working on a website we will get it from the database. 
