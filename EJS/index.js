@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
+app.use(express.static(path.join(__dirname, "public")));
+
 let port = 3000;
 app.listen(port, () =>{
     console.log(`Listening on port ${port}`);
@@ -22,8 +24,15 @@ app.get("/rolldice",(req,res)=>{
 });
 
 app.get("/ig/:username",(req,res)=>{
-    let { username } =req.params;
-    const followers =["adam","Viper","Suraj","Harsh"];
-    console.log(username);
-    res.render("insta.ejs",{ username, followers});
+    let  { username } = req.params;
+    const instaData = require("./data.json");
+    console.log(instaData);
+    const data = instaData[username];
+    if(data){
+        res.render("insta.ejs",{ data }); 
+    }
+    else{
+        res.render("error.ejs");
+    }
+    console.log(data);
 });

@@ -79,3 +79,27 @@ app.get("/rolldice",(req,res) =>{
 <li><%= users %>
 <% } %>  
 followers =["adam","Viper","Suraj","Harsh"]; // this followers are passed in index.js  while working on a website we will get it from the database. 
+
+# Serving static files 
+-> Along with the html there are also some of the static files that are to be send such as css and js files.
+-> To serve these static files we should have a "public" named folder .
+// We can use another name for the folder but for that we have to use some functions.
+-> app.use(express.static( folder_name ))
+// Here we are using a middleware.
+Eg: app.use(express.static("public")); //if we start server from the same directory in which public folder is present we can use it .
+-> Now we can use style.css file we just have to link it to our insta.ejs file 
+Eg: <link rel="stylesheet" href="/style.css">
+// Normally to link the css file we have to mention its full path but here because we have alerady defined the directory for the static file so we don't need that we just have to write /style.css it will automatically search it in the public folder.
+app.use(express.static(path.join(__dirname, "public"))); // If we start the server from any directory then we will use this.
+-> Here the public folder is serving the files to the insta.ejs page.
+
+// Suppose if we have more folders inside our public directory then we will give both folder to serve.
+Eg: Suppose we have css and js directory in our public directory.
+app.use(express.static(path.join(__dirname, "public/css")));
+app.use(express.static(path.join(__dirname, "public/js")));
+
+# Includes 
+-> It is a way of creating the sub templates.
+<%- include("includes/head.ejs"); %> 
+->Includes are relative to the template with the include call. (This requires the 'filename' option.) For example if you have "./views/users.ejs" and "./views/user/show.ejs" you would use <%- include('user/show'); %>.
+-> Create an includes folder in the view directory and then inside it create the files that u want to include.
