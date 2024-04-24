@@ -1,0 +1,19 @@
+# Get & Post requests 
+-> Get: used to Get some response 
+     -> data sent in query strings (limited, string data & visible in URL).
+
+-> Post: used to Post something (for create/write/Update)
+      -> data sent via request body (any type of data).
+
+// When we sent data with get request the data is visible in the url.
+// When we sent data with post request then it is not visible in the url the data is sent with form body.
+-> So when we have to send some data then we send it with post request but when we want to get some data form the server then we use get request.
+
+// To get the response write the full url (http://localhost:3000/register) in the form action attribute then we can get the response.
+
+# How to access the data in backend when we are using get request?
+app.get("/register",(req,res)=>{
+    let {user , password} = req.query;
+    res.send(`Standard get response .Welcome ${user}`);
+});
+// the data is sent with url in the form of query so we can use req.query to get the data.

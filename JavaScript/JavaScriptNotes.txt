@@ -1669,5 +1669,3 @@ async function getJokes(){
         console.log("Error: ", e);
     }
 }
-
-# Updating Query Strings
