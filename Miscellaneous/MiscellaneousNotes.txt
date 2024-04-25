@@ -17,3 +17,44 @@ app.get("/register",(req,res)=>{
     res.send(`Standard get response .Welcome ${user}`);
 });
 // the data is sent with url in the form of query so we can use req.query to get the data.
+
+# Handling Post Request 
+->Setup Post request route to get some response 
+-> Parse Post request data 
+Eg: app.use(express.urlencoded({extended: true})); // this middleware is use by express to read the urlencoded data.
+// This means that if any data comes then express will encode it and it will understand it .
+// After using this we will get the data by using req.body;
+Eg: console.log(req.body); 
+-> But right now the express is only able to read the urlencoded data only. So, if we want express to be able to read the json data also then we can use this middleware also.
+app.use(express.json()); // When we use this then express will be able to read the json format data also.
+-> If we don't use any middleware then by default the req.body will show undefined it will not be able to read data.
+ 
+# Revisiting JS 
+## Object Oriented Programming 
+-> To structure our code 
+   -> prototypes
+   -> New operator 
+   -> constructors 
+   -> classes 
+   -> keywords(extends,super) 
+// Suppose we want to store the data of students in an object for 1 student we can create 1 object but for 1000 student we will not create 1000 object .
+// We will create a template/blueprint with the structure of student object with keys and methods and then we can use it for all the 1000 students. 
+// This blueprint is called as class.
+
+# Object Prototypes
+-> Every object in js has a buit-in property , which is called its prototype. 
+-> Prototypes are the mechanism by which JS objects inherit features from one another.
+-> It is like a single template object that all objects inherit methods and properties from without having their own copy.
+//  If we want to see the prototype objects then we have to write this:
+Eg: arr.__proto__(reference) : using this we can access the reference prototype object.
+    Array.prototype(actual object) : using this we can access the actual prototype object .
+    String.prototype : this will give the prototype objects for string.
+
+// We can also change the function of any of the prototype 
+Eg: arr.__proto__.push = (n) => {console.log("Pushing number",n);}
+// This will change the function of the arr.push now when we use it it will give the output as Pushing number number
+-> So if we want we can access the proto and change its definition.
+
+'abc'.toUpperCase ==='xyz'.toUpperCase //true
+arr1.sayHello() === arr2.sayHello() // False
+// First one is true because it is a prototype function both abc and xyz are using the same toUppperCase function but in second one both are using different sayHello() both arr1 and arr2 has its own copy of sayHello() function.
