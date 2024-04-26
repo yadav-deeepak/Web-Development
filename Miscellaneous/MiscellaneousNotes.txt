@@ -58,3 +58,41 @@ Eg: arr.__proto__.push = (n) => {console.log("Pushing number",n);}
 'abc'.toUpperCase ==='xyz'.toUpperCase //true
 arr1.sayHello() === arr2.sayHello() // False
 // First one is true because it is a prototype function both abc and xyz are using the same toUppperCase function but in second one both are using different sayHello() both arr1 and arr2 has its own copy of sayHello() function.
+
+# Factory Functions
+-> A function that creates objects.
+Eg: function personMaker(name,age){
+    const person={
+        name: name,
+        age: age,
+        talk() {
+            console.log(`Hi my name is ${this.name}`);
+        }
+    };
+    return person;
+} // Here as it is creating the objects that is why it is known as factory function.
+-> Now we can use it to create the person object just by calling this function. We can create 1000 of objects just by calling the function. 
+Eg: let p1 = personMaker('Suraj',20);
+// We can access its value by using . operator 
+// p1.name (this will give the name of the person) similiarly we can access its age and we can call talk() also p1.talk();
+
+Note: But this is not the efficient way because if we create object for 1000 person then it will take memory for 1000 objects with each object having its own space for talk() this is the reason why it is not so efficient.
+// We are trying to achieve that we create the template for once and then use it for other without using extra spaces. There is better way to achieve this using new operator.
+
+# New Operator 
+-> The new operator lets developers create an instance of a user-defined object type or of one of the built-in object types that has a contructor function. 
+-> If we want to create a new object using the constructor then we use new operator to create it.
+-> Using constructors , constructors starts with capital letter and it doesn't return anything.
+Eg: function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.talk = function () {
+    console.log(`Hi , my name is ${this.name}`);
+};
+
+let p1 = new Person("adam",25);
+let p2 = new Person("eve",24);
+// Here we are using constructors and it is doing the same work that factory function was doing but it is doing it in a better way.
+// If we create a function inside the Person then it will not create copy of the function for the 2 different object p1 and p2 it will refer to the same copy.
