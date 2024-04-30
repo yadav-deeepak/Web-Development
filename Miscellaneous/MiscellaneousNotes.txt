@@ -96,3 +96,39 @@ let p1 = new Person("adam",25);
 let p2 = new Person("eve",24);
 // Here we are using constructors and it is doing the same work that factory function was doing but it is doing it in a better way.
 // If we create a function inside the Person then it will not create copy of the function for the 2 different object p1 and p2 it will refer to the same copy.
+
+# Classes 
+-> Classes are a template for creating objects .
+-> The constructor method is a special method of a class for creating and initializing an object instance of that class.
+Eg: class Person {
+    constructor (name , age){
+        this.name = name;
+        this.age = age;
+    }
+    talk(){
+        console.log(`Hi, my name is ${this.name}`);
+    }
+}
+
+let p1 = new Person("adam",25);
+let p2 = new Person("eve",24);
+// object creation method is same.
+-> Here p1 and p2 objects are also using the instance of the same class person they are not making another copy of the functions they are using the same function declared inside the class Person.
+
+# Inheritance 
+-> Inheritance is a mechanism that allows us to create new classes on the basis of already existing classes. 
+-> To achive this we use two keywords extend and super keyword.
+Eg: class Student extends Person {
+    constructor (name,age,marks){
+        super(name,age); // When we use super constructor then that means that we are calling the parent class constructor.
+        this.marks = marks;
+    }
+    greet(){
+        return "Hello!";
+    }
+ }
+
+ let s1 = new Student("adam",25,95);
+
+-> As soon as we declare the variable then first student class constructor and then the Person class constructor will be called.
+-> We can also use overwritting if any fuction with the same name is decalred in the child class then the function declared in the child class will be implemented. Base class function will be overwrite.
