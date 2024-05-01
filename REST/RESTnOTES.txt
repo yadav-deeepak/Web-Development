@@ -1,0 +1,21 @@
+# REST 
+-> Representational State Transfer 
+-> REST is an architectural style that defines a set of constraints(rules) to be used for creating web services.
+
+# RESTful API's 
+-> API's that uses REST are known as RESTful API's.
+-> We are going to use RESTful API's to perform CRUD(Create Read Update Delete) operations(DB).
+
+# CRUD operations 
+-> GET retrives resources. 
+-> POST submits new data to the server.
+-> PUT updates existing data.
+-> PATCH updates the existing data partially 
+-> DELETE removes data.
+
+# Creating RESTful API's 
+-> GET     /posts      to get data for all posts  INDEX(main route)
+-> POST    /posts      to add a new post   CREATE route
+-> GET     /posts/:id  to get one post (using id)  VIEW route 
+-> PATCH   /posts/:id  to update specific post  UPDATE route 
+-> DELETE  /posts/:id  to delete specific post  DESTROY route
