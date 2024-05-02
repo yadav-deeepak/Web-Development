@@ -19,3 +19,30 @@
 -> GET     /posts/:id  to get one post (using id)  VIEW route 
 -> PATCH   /posts/:id  to update specific post  UPDATE route 
 -> DELETE  /posts/:id  to delete specific post  DESTROY route
+
+# Implement : GET/posts
+-> To get data for all posts 
+
+# Implement : POST/posts 
+-> POST    /posts      to add a new post   CREATE route
+## 2 routes 
+-> Serve the form  GET  /posts/new
+-> Add the new post  POST  /posts 
+
+# Implement : GET/posts/:id  (show route)
+-> GET     /posts/:id  to get one post (using id)
+
+# Implement: PATCH/post/:id 
+-> PATCH   /posts/:id  to update specific post  UPDATE route 
+
+# Redirect 
+-> To connect different pages we can use redirect.
+-> Status code that starts with 3 means that response has redirected something.
+-> res.redirect(URL);
+// By default it will redirect with get request.
+
+# Creating id for posts 
+## UUID Package 
+-> Universally unique identifier 
+-> npm install uuid 
+-> Using this package we can create new and unique id .
