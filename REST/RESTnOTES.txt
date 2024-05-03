@@ -35,6 +35,13 @@
 # Implement: PATCH/post/:id 
 -> PATCH   /posts/:id  to update specific post  UPDATE route 
 
+# Create form for update (edit route)
+-> serve the edit form   GET   /posts/:id/edit 
+
+# Implement:  /posts/:id
+Destroy route 
+-> DELETE  /posts/:id   to delete specific post 
+
 # Redirect 
 -> To connect different pages we can use redirect.
 -> Status code that starts with 3 means that response has redirected something.
@@ -46,3 +53,7 @@
 -> Universally unique identifier 
 -> npm install uuid 
 -> Using this package we can create new and unique id .
+
+# method-override package
+-> In HTML forms we can only send GET or POST req .
+-> To solve this we use this npm package.
