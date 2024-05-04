@@ -1,0 +1,32 @@
+# Database : SQL 
+-> MySQL is a database and SQL is the language used to interact with database.
+
+# What is a Database?
+-> It is a collection of data in format that can be easily accessed .
+
+# Why databases?
+-> can store large data .
+-> features like security , scalability etc.
+-> easier to insert , update or delete data.
+
+# SQL v/s NoSQL 
+## SQL 
+-> Relational database (data stored in tables).
+-> Eg: MySQL , Oracle , PostgreSQL etc.
+
+## NoSQL 
+-> Non Relational Database (data stored in document/key-val/graphs etc.)
+-> Eg: MongoDB , Cassandra , Neo4j etc.
+
+# SQL(Structured Query Language)
+-> SQL is a programming language used to interact with relational databases.
+
+# Tables in SQL 
+-> Tables consist of rows and columns.
+Eg:                  user 
+id    name     email          followers    following
+1     Adam    adam@yahoo.in    123          145
+2     Bob     bob12@gmail.com  200          200
+3     Casey   casey@gmail.com  300          306 
+-> Columns tells us about the design/schema of the table. 
+-> rows tells us about the data of one user .Also known as tuple . 
