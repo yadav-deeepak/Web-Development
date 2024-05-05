@@ -30,3 +30,97 @@ id    name     email          followers    following
 3     Casey   casey@gmail.com  300          306 
 -> Columns tells us about the design/schema of the table. 
 -> rows tells us about the data of one user .Also known as tuple . 
+
+# Install MySQL  
+-> Open it we will find the schema option .
+-> Here we will get the sys database that is predefined. We dont have to do any changes to this data.
+-> We will write all our major commands in the Query1 window and in the bottom we will get to know which command we have run and which command has been executed successfully.
+
+# Our first database 
+-> CREATE DATABASE db_name;
+-> DROP DATABASE db_name;
+-> USE db_name;
+// SQL is not a case sensitive language we can write either in uppercase or lowercase.
+// Write the command / query and then select it and run it using the second button on the top.
+-> If we want to create the table in the DB then we have to first select the DB we write USE db_name;
+-> Then we can create the table inside the database.
+
+# Our first table 
+-> CREATE TABLE table_name(
+    column_name1 datatype constraint,column_name2 datatype constraint,column_name3 datatype constraint
+);
+// Used to create table 
+-> INSERT INTO table_name VALUES (val1,val2),(val1,val2);
+// Used to insert value into the table .
+-> SELECT * FROM table_name;
+// Used to view all the data in the table.
+
+# DATABASE QUERIES 
+-> CREATE DATABASE db_name;
+-> CREATE DATABASE IF NOT EXISTS db_name;
+-> DROP DATABASE db_name;
+-> DROP DATABASE IF EXISTS db_name;
+-> SHOW DATABASES;
+-> SHOW TABLES;
+
+# TABLE QUERIES 
+ -> CREATE TABLE
+    -> It is used to define the schema / columns of the table.
+    -> CREATE TABLE table_name(
+    column_name1 datatype constraint,column_name2 datatype constraint,column_name3 datatype constraint
+);
+
+ -> INSERT 
+    -> INSERT INTO table_name (colname1 , colname2)
+    VALUES
+    (col1_v1,col2_v1),
+    (col1_v2,col2_v2);
+
+ -> UPDATE 
+ -> ALTER 
+ -> TRUNCATE 
+ -> DELETE 
+
+# Constraints 
+-> Rules for data in the table 
+## NOT NULL : columns cannot have a null value 
+## UNIQUE : All the values in column are different 
+## DEFAULT : sets the default value of a column.
+## CHECK : it can limit the values allowed in a column .
+Eg: salary INT DEFAULT 25000 
+CONSTRAINT age_check CHECK (age >= 18 AND city = "DELHI")
+
+## PRIMARY KEY 
+-> Makes a column unique & not null but used only for one 
+Eg: CREATE TABLE temp(
+    id INT NOT NULL,
+    PRIMARY KEY (id)
+);
+-> There are 2 ways through which we can declare the primary key .
+1.> id INT PRIMARY KEY 
+2.> PRIMARY KEY (id)
+
+## FOREIGN KEY 
+-> prevent actions that would destroy links between tables 
+Eg: CREATE TABLE temp(
+    cust_id INT,
+    FOREIGN KEY (cust_id) references customer(id)
+);
+
+# Keys 
+-> Keys are special columns in the table .
+
+## Primary Key
+-> It is a column (or set of columns) in a table that uniquely identifies each row .(a unique id). There is only 1 PK & is should be NOT NULL. 
+
+## Foreign key 
+-> A foreign key is a column (or set of columns) in a table that refers to the primary key in another table .
+-> FKs can have duplicate & null values .
+-> There can be multiple FKs.
+
+# Select command 
+-> Selects & show data from the DB.
+Syntax: SELECT col1,col2 FROM table_name;
+
+Syntax: SELECT * FROM table_name;
+// To show all 
