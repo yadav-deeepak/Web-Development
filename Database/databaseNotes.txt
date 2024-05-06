@@ -77,9 +77,38 @@ id    name     email          followers    following
     (col1_v2,col2_v2);
 
  -> UPDATE 
+    -> Update(to update existing rows)
+    Eg: UPDATE table_name 
+        SET col1 = val1, col2 = val2 WHERE condition;
+    -> When we run first time UPDATE command we might face an error to solve this error run
+    SET SQL_SAFE_UPDATES = 0;
+    // this will solve the error.
+
  -> ALTER 
+    -> To change the schema 
+    ## ADD column 
+    -> ALTER TABLE table_name ADD COLUMN column_name datatype constraint;
+
+    ## DROP column 
+    -> ALTER TABLE table_name DROP COLUMN column_name;
+
+    ## RENAME table 
+    -> ALTER TABLE table_name RENAME TO new_table_name;
+
+    ## CHANGE column(rename)
+    -> ALTER TABLE table_name CHANGE COLUMN old_name new_name new_datatype new_constraint;
+
+    ## MODIFY column(modify datatype/constraint)
+    -> ALTER TABLE table_name MODIFY col_name new_datatype new_constraint; 
+
  -> TRUNCATE 
+    -> To delete table's data 
+    Eg: TRUNCATE TABLE table_name;
+    
  -> DELETE 
+    -> To delete existing rows 
+    Eg: DELETE FROM table_name WHERE condition;
+    // If we don't mention what we have to delete then it will delete all the data.
 
 # Constraints 
 -> Rules for data in the table 
@@ -124,3 +153,69 @@ Syntax: SELECT col1,col2 FROM table_name;
 
 Syntax: SELECT * FROM table_name;
 // To show all 
+
+# WHERE clause 
+-> To define some conditions
+SELECT col1,col2 FROM table_name WHERE conditions;
+
+## WHERE clause Operators
+-> Arithmetic Operators : +(addition), -(subtraction), *(multiplication), /(division), %(modulus)
+-> Comparison Operators : =(equal to), !=(not equal to), >, >=, <, <=
+-> Bitwise Operators: &(bitwise AND), |(bitwise OR)
+-> Logical Operator : AND, OR, NOT, IN, BBETWEEN, ALL, LIKE, ANY 
+  -> AND: to check for both conditions to be true 
+  -> OR: to check for one of the conditions to be true
+
+  -> BETWEEN: selects for a given range 
+  Eg: WHERE age BETWEEN 15 AND 17
+  // 15 se 17 ke beech me jiski age hogi vo logo ka data return hojaayega.
+
+  -> IN: matches any value in the list.
+  Eg: SELECT name,email FROM user WHERE email IN ("adam@yahoo.in","viper@gmail.com","abc@gmail.com");
+  // Returns name and email of the user whose emails are these 3 given emails.
+
+  -> NOT: to negate the given condition.
+  Eg: SELECT name,age FROM user WHERE age NOT IN (14,15);
+  // jaha prr age 14/15 nahi hogi vo data print hojaayega.
+
+# LIMIT clause 
+-> Sets an upper limit on number of (tuples) rows to be returned.
+Eg: SELECT col1,col2 FROM table_name LIMIT number;
+
+# ORDER BY clause
+-> To sort in ascending (ASC) or descending order (DESC)
+Eg: SELECT col1,col2 FROM table_name ORDER BY col_name ASC;
+-> If we don't write the order then by default it will sort in the ascending order.
+// col_name ke basis prr ascending order me sort krdega
+
+# Aggregate Functions
+-> Aggregate functions perform a calculation on a set of values, and return a single value 
+   # COUNT()
+   # MAX()
+   # MIN()
+   # SUM()
+   # AVG()
+Eg: SELECT max(marks) FROM student;
+
+# GROUP BY clause 
+-> Groups rows that have the same values into summary rows.
+-> It collects data from multiple records and groups the result by one or more column.
+Eg: SELECT col1,col2 FROM table_name GROUP BY col_names;
+** Generally we use group by with some aggregation function.
+
+# Having clause 
+-> Similar to WHERE i.e applies some condition on rows.
+-> But it is used when we want to apply any condition after grouping. 
+Eg: SELECT col1,col2 FROM table_name GROUP BY col_names
+HAVING condition;
+-> WHERE is for the table ,HAVING is for a group 
+-> Grouping is necessary for HAVING 
+
+# General order 
+-> Whenever we want to write multiple clauses together its general format is given below.
+SELECT columns
+FROM table_name
+WHERE condition 
+GROUP BY columns
+HAVING condition 
+ORDER BY columns ASC;
