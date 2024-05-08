@@ -257,6 +257,7 @@ connection.query(
     console.log(fields); // fields contains extra meta data about results, if available
   }
 );
+// Here the result is an array that is collection of various object returned by our database.
 
 connection.end(); // to close connection if we don't close the connection then it will not be closed .
 
@@ -273,3 +274,95 @@ source schema.sql //in CLI
 -> MySQL Package 
 -> CLI 
 -> Using SQL files
+
+# CREATE Table user
+CREATE TABLE user{
+   id VARCHAR(50) PRIMARY KEY,
+   username VARCHAR(50) UNIQUE,
+   email VARCHAR(50) UNIQUE NOT NULL,
+   password VARCHAR(50) NOT NULL 
+};
+
+# INSERT user 
+// Using placeholders 
+let user = ["123@abc2","random_user2","random@gmail.com2","random@123"];
+
+connection.query(`INSERT INTO user (id,username,email,password) VALUES (?,?,?,?)`,user,
+function (err,results){
+   if(err) throw err;
+   console.log(results);
+}
+);
+// Using placeholders means we can add data in the array and then we can pass it in the places of ? 
+// all the places that needs data are separated by ? , and then the array is passed with the values.
+Response we get
+ResultSetHeader {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  info: '',
+  serverStatus: 2,
+  warningStatus: 0,
+  changedRows: 0
+}
+// If we have to add mutliple data then we will create the array of array.
+et q = "INSERT INTO user (id,username,email,password) VALUES ?";
+let users = [["123","123_newuser","abc@hgmail.com","abc"],["123b","123_newuserb","abc@hgmail.comb","abcb"]];
+
+try{
+    connection.query(q,[users],(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+    })
+}
+catch(err){
+     console.log(err);
+}
+Note : Don't enter the duplicate data.
+
+# INSERT in bulk 
+// Using faker 
+let data = [];
+for(let i=1; i<=100; i++){
+   data.push(getRandomUser());
+}
+
+console.log(data);
+let q = `INSERT INTO user (id,username,email,password) VALUES ?`;
+
+connection.query(q,[data],function (err,results){
+    if(err) throw err;
+   console.log(results);
+});
+// We have to do some changes in our faker function
+let getRandomUser = () => {
+    return [
+       faker.string.uuid(),
+       faker.internet.userName(),
+       faker.internet.email(),
+       faker.internet.password(),
+    ];
+  };// it will return an array not an object
+
+# Routing 
+-> GET  /  -> show no of user in DB 
+-> GET  /user  -> show users(email,id,username)
+-> PATCH  /user/:id  ->  username edit
+-> POST  /user   -> new user 
+-> DELETE  /user/:id  -> user delete 
+
+# Setting up Express App 
+## GET / fetch & show total number of users on our app.
+//  CODE  //
+app.get("/",(req,res)=>{
+   let q =`SELECT count(*) FROM user`;
+   try{
+      connection.query(1,(err,result) =>{
+         if(err) throw err;
+         let count = result[0]["count(*)"];
+         res.render("home.ejs",{ count });
+      });
+   }catch(err){
+      res.send("some error occurred");
+   }
+}); 
