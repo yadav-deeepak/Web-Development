@@ -352,6 +352,7 @@ let getRandomUser = () => {
 -> DELETE  /user/:id  -> user delete 
 
 # Setting up Express App 
+# HOME ROUTE
 ## GET / fetch & show total number of users on our app.
 //  CODE  //
 app.get("/",(req,res)=>{
@@ -366,3 +367,68 @@ app.get("/",(req,res)=>{
       res.send("some error occurred");
    }
 }); 
+
+# SHOW ROUTE
+## GET /user  fetch & show (id,username,email) of all users
+//  CODE  //
+app.get("/user",(req,res) => {
+   let q = `SELECT * FROM user`;
+   try{
+      connection.query(q,(err,result) =>{
+         if(err) throw err;
+         let data  = result;
+         console.log(data);
+         res.render("users.ejs", { data });
+      });
+
+   }catch(err){
+      res.send("Some error has occurred");
+   }
+});
+
+# EDIT ROUTE
+-> We will complete edit route in 2 phases. 
+## GET /user/:id/edit  to get form to edit the username based on id. This form will require a password 
+// CODE 
+app.get("/user/:id/edit",(req,res) =>{
+  let { id } = req.params;
+  let q = `SELECT * FROM user WHERE id = '${id}'`;
+  try{
+    connection.query(q,(err,result) =>{
+       if(err) throw err;
+       let user = result[0];
+       res.render("edit.ejs",{ user });
+    });
+
+ }catch(err){
+    res.send("Some error has occurred");
+ }
+})
+
+## PATCH /user/:id   to edit username,if correct password was entered in form.
+
+// CODE
+app.patch("/user/:id",(req,res) =>{
+  let { id } = req.params;
+  let {password: formPass, username: newUsername} = req.body;
+  let q = `SELECT * FROM user WHERE id = '${id}'`;
+  try{
+    connection.query(q,(err,result) =>{
+       if(err) throw err;
+       let user = result[0];
+       if(formPass != user.password){
+        res.send("Wrong Password");
+       }else{
+        let q2 = `UPDATE user SET username = '${newUsername}' WHERE id = '${id}'`;
+        connection.query(q2,(err,result) =>{
+          if(err) throw err;
+          res.redirect("/user");
+        })
+       }
+       
+    });
+
+ }catch(err){
+    res.send("Some error has occurred");
+ }
+})
