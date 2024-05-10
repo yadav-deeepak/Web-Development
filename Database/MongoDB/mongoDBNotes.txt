@@ -2,5 +2,40 @@
 -> It is the most popular database to pair with express.
 
 # The Shell 
+-> We can use mongo shell to run mongoDB in terminal.
 -> mongosh  //to start 
 -> use college  //to create & use a new database called "college".
+
+# Mongo shell command 
+-> Mongo shell is a type of js shell. It mean that just like js it can also execute js codes 
+Eg: "abc".toUpperCase() // this will convert the string into upper case.
+-> There are many more js commands that mongo recognises.
+-> exit/quit : use to exit the mongoDB.
+-> As we open the mongo shell it automatically creates temporary database named test>
+
+## Mongo ke liye koi bhi database permanent tb bnta h jb hum ussme koi data store kr dete hai.
+-> db : this command is use to know the current database.
+
+# BSON Data 
+-> Binary JSON :in mongoDB the data is stored in BSON format.
+-> There were some of the issues in the JSON format that are solved by the BSON format.
+# JSON 
+  -> Text based data : parsing of text based data is difficult .
+  -> Space inefficient
+  -> Less datatypes
+  -> Readability: Human & Machine
+# BSON 
+  -> It doesn't store data in text based format so it solves the problem of parsing text data.
+  -> Space efficient 
+  -> More datatypes
+  -> Readability: Machine
+
+// We pass the data in json format only but mongo converts it into the BSON format.
+
+# Collections 
+-> Document : Mongo stores data in form of documents (BSON data).
+-> Collection : MongoDB stores documents in collections.
+
+# INSERT in DB 
+-> insertOne 
+   db.collection.insertOne()   //Inserts a single document into a collection.
