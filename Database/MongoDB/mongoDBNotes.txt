@@ -1,0 +1,6 @@
+# MongoDB 
+-> It is the most popular database to pair with express.
+
+# The Shell 
+-> mongosh  //to start 
+-> use college  //to create & use a new database called "college".
