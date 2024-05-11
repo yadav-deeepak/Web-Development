@@ -37,5 +37,31 @@ Eg: "abc".toUpperCase() // this will convert the string into upper case.
 -> Collection : MongoDB stores documents in collections.
 
 # INSERT in DB 
+-> If a collection doesn't exist, MongoDB creates the collection when you first store data into that collection.
 -> insertOne 
    db.collection.insertOne()   //Inserts a single document into a collection.
+   Eg: db.student.insertOne( {name: "adam" , age: 20 , marks: 45} )
+   show collections // shows all the collections of the database.
+   db.students.insertOne({name: "adam",marks: 79})
+   db.student.find() // Using this command we can see all the data of any collection.
+
+// As we insert a document mongodb creates an objectid with key as insertedId for that document automatically.
+Eg: {
+  acknowledged: true,
+  insertedId: ObjectId('663f4aaaa1fcff535846b799')
+}
+
+# In mongoDb there is no restriction of schema suppose we stored name age and marks for one student and we want to store name age marks and city for other student we can do it there is no restriction on the schema .
+
+-> insertMany(array of documents) // Insertd multiple documents into the collection.
+   db.student.insertMany([{name:"bob",marks:65},{name:"eve",city:"Mumbai"}])
+
+# FIND in DB 
+-> db.collection.find() //returns everything
+// for specific queries 
+   db.collection.find({key: value}) // returns everyone for whom the condition matches.It returns cursor(reference to orignal).
+   db.collection.findOne({key: value}) //returns only the first document with whom the condition matches.It returns actual document.
+-> We can also pass multiple key value pair 
+Eg: db.student.find({city: "Delhi", marks: 76})
+
+  # Query Operators 
