@@ -65,3 +65,65 @@ Eg: {
 Eg: db.student.find({city: "Delhi", marks: 76})
 
   # Query Operators 
+  -> Find students where marks > 75
+     db.student.find( {marks: {$gt: 75}} )
+  
+  -> Find students who live in Delhi or Mumbai 
+     db.student.find( {city: {$in: ["Delhi", "Mumbai"]}} )
+  
+  -> Find students who scored > 75 or live in Delhi 
+     db.student.find( {$or: [{marks: {$gt: 75}},{city: "Delhi"}]})
+
+// Values are case sensitive we have to type the commands as it is .
+
+# UPDATE in DB 
+// updateOne 
+   db.collection.updateOne()  : Updates at most a single document that match a specified filter even though multiple documents may match the specified filter .
+   
+   Syntax: db.collection.updateOne(<filter>,<update>,<options>)
+
+   Eg : db.student.updateOne( {name:"adam"}, {$set: {marks: 99}} )
+
+// updateMany 
+   db.collection.updateMany()  : Update all documents that match a specified filter. 
+   Eg: db.student.updateMany( {city: "Delhi"}, {$set: {city: "New Delhi"}} )
+
+// replaceOne 
+   db.collection.replaceOne()  : Replaces at most a single document that match a specified filter even though multiple documents may match the specified filter.
+   Eg: db.student.replaceOne( {name: "bob"}, {name: "Deepak", marks: 87, state: "Uttar Pradesh"} )
+   // this will replace the data where name is bob with the new data.
+
+# UPDATE Operators 
+  -> $addFields 
+  -> $set
+  -> $project 
+  -> $unset 
+  -> $replaceRoot
+  -> $replaceWith 
+
+# Nesting 
+->  {
+    _id: ObjectId('6641fa53e614b53d3746b79c'),
+    name: 'Viper',
+    performance: { marks: 88, grade: 'A' }
+  }
+
+   db.student.find( {"performance.marks": 88} )
+   // this will find the student whose performance.marks is 88 . Write it inside braces "performance.marks"
+
+# DELETE in DB 
+  // deleteOne 
+     db.collection.deleteOne(<filter>,<options>)
+     Eg: db.student.deleteOne( {state: "Uttar Pradesh"} )
+  
+  // deleteMany 
+     db.collection.deleteMany(<filter>,<options>)
+     Eg: db.student.deleteMany( {city: "New Delhi"} )
+     db.student.deleteMany( {} ) // This will delete all the data from the student database.
+
+  // dropDatabase 
+     db.dropDatabase() // This will delete the current data base.
+
+# Mongoose 
+-> A library that creates a connection between MongoDB & Node.js JavaScript Runtime Environment .
+-> Its is an ODM (object data modelling) library.
