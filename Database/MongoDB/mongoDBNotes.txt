@@ -127,3 +127,66 @@ Eg: db.student.find({city: "Delhi", marks: 76})
 # Mongoose 
 -> A library that creates a connection between MongoDB & Node.js JavaScript Runtime Environment .
 -> Its is an ODM (object data modelling) library.
+// Installation 
+   npm i mongoose
+
+# Require and connect with database 
+-> const mongoose = require('mongoose');
+   
+   main().then((res)=>{
+    console.log("Connection successful");
+})
+.catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/test');
+}
+// mongoose.connect returns a promise that is why we are using asyn and await here
+
+# Schema (Overall structure)
+-> Schema defines the shape of the documents within that collection.
+const userSchema = new mongoose.Schema({
+   name: String,
+   email: String,
+   age: Number,
+});
+
+# Models
+-> Model in mongoose is a class with which we construct documents.
+const User = mongoose.model("User", userSchema);
+// In mongodb a collection will be created with name users .
+// There are slight changes that are done to the name if we give the name as User it will make it as users . Capital letters are converted into small letters and if the name is in singular then it will be converted to plural .
+// So we should always write the name of the collection carefull we should write it in singular only it will automatically be converted into plural format by mongodb.
+
+# INSERT 
+// inserting one 
+const user1 = new User({ name: "Adam", email: "adam@yahoo.in", age: 43 });
+const user2 = new User({ name: "Eve", email: "eve@google.com", age: 42 });
+-> When you create a new document with the automatically added _id property, Mongoose creates a new _id of type ObjectId to your document.
+
+user1.save() //to save in DB 
+user2.save() //to save in DB 
+
+# NODE REPL 
+-> If we don't use save() then it will not be saved in the mongodb but new objects user1 and user2 are created we can see it in node REPL 
+step 1: node  // to enter into node REPL 
+step 2: .load file name 
+      Eg: .load index.js  // this will load the content of index.js on the REPL 
+step 3: user1  // type the obj name and we can see the data of that object in REPL .
+
+// inserting multiple 
+User.insertMany([
+   { name: "Tony", email: "tony@gmail.com", age: 50 },
+   { name: "Bruce", email: "bruce@gmail.com", age: 47 },
+   { name: "Peter", email: "peter@gmail.com", age: 30 },
+]).then((data) => {
+   console.log(data);
+});
+
+# NOTE :
+-> Mongoose uses Operation Buffering 
+-> Mongoose lets you start using your models immediately, without waiting for mongoose to establish a connection to MongoDB.
+
+# FIND 
+-> Model.find() //returns a query object (thennable)
+*Mongoose queries are not promises.But they have a .then()
