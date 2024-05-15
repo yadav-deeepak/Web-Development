@@ -190,3 +190,9 @@ User.insertMany([
 # FIND 
 -> Model.find() //returns a query object (thennable)
 *Mongoose queries are not promises.But they have a .then()
+User.find().then((data)=>{
+   console.log(data);
+});
+User.find({ age: { $gt: 47 } }).then((data)=>{
+   console.log(data);
+});
