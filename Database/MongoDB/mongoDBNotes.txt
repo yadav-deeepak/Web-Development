@@ -188,7 +188,7 @@ User.insertMany([
 -> Mongoose lets you start using your models immediately, without waiting for mongoose to establish a connection to MongoDB.
 
 # FIND 
--> Model.find() //returns a query object (thennable)
+// Model.find() //returns a query object (thennable)
 *Mongoose queries are not promises.But they have a .then()
 User.find().then((data)=>{
    console.log(data);
@@ -196,3 +196,124 @@ User.find().then((data)=>{
 User.find({ age: { $gt: 47 } }).then((data)=>{
    console.log(data);
 });
+// Model.findOne()  //returns a single result 
+-> Returns the value of the first user with whom the condition matches.
+Eg: User.findOne({ age: { $gt: 45 } }).then((data)=>{
+   console.log(data);
+});
+// Model.findById()  //commonly used
+-> In this method we just have to pass the id in the brackets no condition is needed to be passed.
+Eg: User.findById("664352c840478160637a3696").then((data)=>{
+   console.log(data);
+})
+
+# UPDATE 
+// Model.updateOne()
+-> Matched condition ke first document me update hojaayega.
+Syntax: Model.updateOne({condition},{updated value})
+Eg: User.updateOne({name: "Bruce"}, {age: 49}).then((res)=>{
+   console.log(res);
+});
+// Model.updateMany()
+Eg: User.updateMany({age: {$gt:45 } },{age: 45}).then((res)=>{
+   console.log(res);
+});
+
+// Model.findOneAndUpdate()
+-> This will first find the object and return it and then update it.
+-> Returns query object.
+Syntax: Model.findOneAndUpdate({condition},{updated value},{option})
+Eg: User.updateMany({age: {$gt:45 } },{age: 45}).then((res)=>{
+   console.log(res);
+});
+User.findOneAndUpdate({ name: "Tony }, { age: 60 }, { new: true }).then((data)=>{
+   console.log(data);
+})
+-> If we set { new: true } then it will return the object with the updated value.
+
+// Model.findByIdAndUpdate()
+-> This also same as the above but in this we use id to find the object and then the value will be updated.
+
+# DELETE 
+// Model.deleteOne()  //returns count 
+Eg: User.deleteOne({ name: "Adam"}).then((res)=>{
+   console.log(res);
+})
+
+// Model.deleteMany() //returns count
+Eg: User.deleteMany({ age: { $gt: 40 } }).then((res)=>{
+   console.log(res);
+})
+-> These two method will not return the value that is deleted for that we will use Model.findByIdAndDelete() or Model.findOneAndDelete()
+
+// Model.findByIdAndDelete()
+-> This will first find the object return it and then delete it 
+Eg: User.findByIdAndDelete("664350aed60da1cd1eaaa120")
+
+# Schema Validations
+-> Basically rules for schema 
+Eg: const bookSchema = mongoose.Schema({
+   title: {
+   type: String,
+   required: true,
+},
+author: {
+   type: String,
+},
+price: {
+   type: Number,
+},
+});
+
+# SchemaType Options 
+const bookSchema = mongoose.Schema({
+   title: {
+   type: String,
+   required: true,
+},
+author: {
+   type: String,
+},
+price: {
+   type: Number,
+   min: [1, "Please enter a valid price"],
+},
+discount: {
+   type: Number,
+   default: 0,
+},
+genre: [String], 
+category: {
+   type: String,
+   enum: ["fiction","non-fiction"],
+},
+});
+-> If the category entered is not present in the enum array then it will not accept that value.
+-> In genre we can store multiple values as its type is array of string ([String])
+
+# Schema Validations 
+  With UPDATE 
+-> The validation rule defined in schema doesn't work with update.
+Eg: Book.findByIdAndUpdate("66461d962e472bc264a8cfa0",{price: -500}).then((res)=>{
+    console.log(res);
+}).catch((err)=>{
+    console.log(err);
+});
+// Here price of the book will be set to -500 after updation though we have give the validation rule that value of price should not be less than 1
+// If we want to avoid this there is an option that we have to set as true.{ runValidators: true}
+Eg: Book.findByIdAndUpdate("66461d962e472bc264a8cfa0",{price: -500}, {runValidators: true}).then((res)=>{
+    console.log(res);
+}).catch((err)=>{
+    console.log(err);
+});
+// Now this will run the validator again at the time of updation and if value of price will be less than 1 then it will throw an error.
+
+# Handling Errors 
+-> We can define the custom error which will be define while defining schema.
+Eg: price: {
+   type: Number,
+   min: [1, "Please enter a valid price"],
+},
+// If the value of price will be less than 1 then this error will be thrown "Please enter a valid price"
+-> We can also access the error message.
+Eg: console.log(err.errors.price.properties.messaage);
