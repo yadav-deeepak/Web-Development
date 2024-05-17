@@ -317,3 +317,33 @@ Eg: price: {
 // If the value of price will be less than 1 then this error will be thrown "Please enter a valid price"
 -> We can also access the error message.
 Eg: console.log(err.errors.price.properties.messaage);
+
+# Basic Setup
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const path = require("path");
+const port = 3000;
+
+app.set("view engine","ejs");
+app.set("views",path.join(__dirname,"views"));
+
+main().then((res)=>{
+    console.log("Connection successful");
+})
+.catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
+}
+
+app.get("/",(req,res)=>{
+    res.send("Home page");
+});
+
+app.listen(port,()=>{
+    console.log(`Server is running on port ${port}`);
+});
+
+# Creating the Model 
+-> Chat will have: (_id,from,to,message,created_at)
