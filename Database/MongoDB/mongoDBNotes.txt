@@ -347,3 +347,101 @@ app.listen(port,()=>{
 
 # Creating the Model 
 -> Chat will have: (_id,from,to,message,created_at)
+-> As we know that we can have multiple schema used in a single website . So we can't write the schema of every DB in the index.js.
+-> For this we will also create a models folder in which we will define all the schemas that are used in our website.
+-> We will create the models in the model folder and then we will require the model which we need in our index.js
+Eg: //chats.js 
+const mongoose = require("mongoose");
+
+const chatSchema = new mongoose.Schema({
+    from: {
+        type: String,
+        required: true,
+    },
+    to: {
+        type: String,
+        required: true,
+    },
+    msg: {
+        type: String,
+        maxLength: 50,
+    },
+    created_at: {
+        type: Date,
+        required: true,
+    }
+});
+
+const Chat = mongoose.model("Chat",chatSchema);
+
+module.exports = Chat;
+// We will export the model and then require it in the index.js
+
+// index.js
+const Chat = require("./models/chats.js");
+
+let chat1 = new Chat({
+    from: "Suraj",
+    to: "Deepak",
+    msg: "Send me 500",
+    created_at: new Date(),//creates random date and time.
+});
+
+chat1.save().then((res)=>{
+    console.log(res);
+});
+
+# Initialize Database 
+-> We are going to initialize our database with some data.It will be helpful in testing the website.
+-> For that we will create the file init.js in which we write the code of initializing any database.
+-> We will run it only once to initialize the database.
+// init.js 
+const mongoose = require("mongoose");
+const Chat = require("./models/chats.js");
+
+main().then((res)=>{
+    console.log("Connection successful");
+})
+.catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
+}
+
+let allChats = [
+    {
+        from: "Suraj",
+        to: "Deepak",
+        msg: "Send me 500",
+        created_at: new Date(),
+    },
+    {
+        from: "Viper",
+        to: "Deepak",
+        msg: "Photos bhejde",
+        created_at: new Date(),
+    },
+    {
+        from: "Suraj",
+        to: "Viper",
+        msg: "Chemistry kaha se padhu",
+        created_at: new Date(),
+    },
+    {
+        from: "Viper",
+        to: "Harsh",
+        msg: "Glitchzz",
+        created_at: new Date(),
+    },
+]
+
+Chat.insertMany(allChats);
+// This code will initialize the database. If we delete all the data from the database then we can again go and execute this file 
+
+# Chats 
+// Index Route 
+-> GET  /chats : show all chats.
+
+// New & Create Route 
+-> GET  /chat/new 
+-> POST  /chats
