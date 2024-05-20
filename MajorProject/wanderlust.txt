@@ -1,0 +1,30 @@
+# Getting Started 
+-> Database Setup 
+-> REST Apis for CRUD 
+
+# Model: Listing 
+-> title 
+-> description
+-> image 
+-> price 
+-> location 
+-> country
+
+# Initialize Database 
+
+# INDEX ROUTE 
+-> GET  /listings  // all listings
+
+# SHOW ROUTE : READ
+-> GET  /listings/:id   //specific listing data view
+<%= listing.price.toLocaleString("en-IN") %> 
+// Here toLocaleString("en-IN") This function is used to display the price with commas accorrding to indian standards.
+
+# NEW & CREATE ROUTE : CREATE
+-> GET  /listings/new   //we will get a form 
+-> POST  /listing   //when form is submitted then it will  send a post req which will create a new list.
+
+<input name="Listing[title]" placeholder="Enter title" type="text">
+// We can either write like this in this a listing object will be created which will have title as key and the input value as pair.This will reduce the code we have to write in our app.js.
+
+let {title, description, image, price, country, location} = req.body;
