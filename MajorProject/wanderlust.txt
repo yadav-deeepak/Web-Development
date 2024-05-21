@@ -26,5 +26,15 @@
 
 <input name="Listing[title]" placeholder="Enter title" type="text">
 // We can either write like this in this a listing object will be created which will have title as key and the input value as pair.This will reduce the code we have to write in our app.js.
-
+let newListing = new Listing(req.body.listing);
+   await newListing.save();
+                OR
 let {title, description, image, price, country, location} = req.body;
+
+# Edit & Update Route : Update 
+-> GET   /listings/:id/edit    //edit form 
+// when the form is submitted 
+-> PUT  /listings/:id  
+
+# DELETE ROUTE 
+-> DLETE  /listings/:id
