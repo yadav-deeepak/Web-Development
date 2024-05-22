@@ -38,3 +38,17 @@ let {title, description, image, price, country, location} = req.body;
 
 # DELETE ROUTE 
 -> DLETE  /listings/:id
+
+# Adding styling 
+## What is EJS Mate?
+-> This will also helps us in creating templates/layouts.
+-> Using this we create a boilerplate once and then we add the body inside it from other listings
+ <%- body %> //write this in the to import body from other templates.
+ <% layout("/layouts/boilerplate.ejs") %> // use this in the templates to add the boilerplate code .
+
+# Creating NavBar 
+-> includes/navbar.ejs
+-> Used bootstrap for creating the navbar 
+
+# Footer 
+-> includes/footer.ejs
