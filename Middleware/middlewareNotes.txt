@@ -1,0 +1,27 @@
+# Middleware 
+-> It is an intermediary .
+// Request -----> Middlware ------> Response 
+-> In express Middleware in express are functions that come into play after the server recieves the request and before the response is sent to the client.
+-> Common middleware funcitons: 
+   // methodOverride
+   // bodyParser 
+   // express.static 
+   // express.urlencoded 
+-> app.use(express.urlencoded({extended: true}));
+-> app.use(express.static(path.join(__dirname,"/public")));
+
+# Properties of middleware
+-> Middleware can access req and res object
+-> Chaining is also possible in middleware.
+-> If middleware want it can stop the chaining by sending a response.
+Eg: const express = require("express");
+const app = express();
+const port = 3000;
+
+//middleware -> response send
+
+app.get("/",(req,res)=>{
+    res.send();
+});
+// If we send a req to "/" and there is a middleware present before the app.get is also sending a response then the response of the middleware will be sent 
+
