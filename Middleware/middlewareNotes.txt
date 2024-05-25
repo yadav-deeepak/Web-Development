@@ -25,3 +25,65 @@ app.get("/",(req,res)=>{
 });
 // If we send a req to "/" and there is a middleware present before the app.get is also sending a response then the response of the middleware will be sent 
 
+# What do middlewares do ?
+-> Middleware functions can perform the following tasks: 
+   -> Execute any code.
+   -> Make changes to the request and the response objects.
+   -> End the request- response cycle.
+   -> Call the next middleware function in the stack.
+
+# Our first middleware 
+// app.use(middleware)
+Eg: app.use(()=>{
+    console.log("Hi, I am a middleware");
+});
+
+// using req & res object in middleware
+Eg: app.use((req,res)=>{
+    console.log("Hi, Iam a middleware");
+    res.send("Bye");
+});
+
+# Using next 
+-> The next middleware function is commonly denoted by a variable named text .
+Eg: app.use((req,res,next)=>{
+    console.log('Time:',Date.now())
+    next()
+})
+// If the current middlware function doesn't end the request-response cycle ,it must call next() to pass control to the next middleware function. 
+-> Code written after next will also get executed .
+Eg:app.use((req,res,next)=>{
+    console.log("Hi , I'm 1st middleware");
+    next();
+    console.log("This is after next");
+});
+// first the first console.log mssg will be printed and then the next statement will execute the next middleware after that 2nd console.log mssg will be printed.
+// But this is not a good way of writing code a good developer avoid writing code like this.
+
+-> Middlewares are of various types 
+1. Application middleware 
+2. Router middleware 
+3. Error handling middleware 
+4. Built-in middleware 
+## Middlewares will always get executed wheather the you have selected the right path or wrong path. 
+
+# Creating a utility middleware 
+## Logger 
+-> We can use morgan for creating utility middleware .
+-> Logger functions helps us to print the useful information on console.
+-> Info related to  request such as request time ,response time ,hostname etc are printed/logged using logger.
+-> app.use((req,res,next)=>{
+    req.responseTime = new Date(Date.now()).toString();
+    console.log(req.method, req.path, req.responseTime, req.hostname);
+    next();
+});
+// We can also manipulate the request using middlewares
+Eg: req.responseTime = new Date(Date.now()).toString();
+//here we are manipulating the response time by ourself
+## Generally we write middlewares in the starting of the code if we want to execute them for each and every request.
+## If we place middleware in the last then as soon as it find the response it will send it and the req will not be able to reach the middleware.
+
+# app.use Callback 
+app.use("/random",(req,res,next)=>{
+    console.log("I am only for random)
+})
