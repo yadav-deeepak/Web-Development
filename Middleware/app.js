@@ -15,10 +15,28 @@ const port = 3000;
 // });
 
 //Logger 
-app.use((req,res,next)=>{
-    req.time = new Date(Date.now()).toString();
-    console.log(req.method,req.hostname,req.path,req.time);
+// app.use((req,res,next)=>{
+//     req.time = new Date(Date.now()).toString();
+//     console.log(req.method,req.hostname,req.path,req.time);
+//     next();
+// });
+
+// Middleware only for random
+app.use('/random',(req,res,next)=>{
+    console.log("I am only for random");
     next();
+});
+
+const checkToken = (req,res,next)=>{
+    let{token} = req.query;
+    if (token === "giveaccess"){
+        next();
+    }
+    throw new Error("ACCESS DENIED");
+};
+
+app.get("/api", checkToken, (req,res)=>{
+    res.send("Data");
 });
 
 app.get("/",(req,res)=>{
@@ -27,6 +45,11 @@ app.get("/",(req,res)=>{
 
 app.get("/random",(req,res)=>{
     res.send("This is a random page");
+});
+
+//404 
+app.use((req,res)=>{
+    res.send("Page not found");
 });
 
 app.listen(port,()=>{

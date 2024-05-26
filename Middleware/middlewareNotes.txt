@@ -85,5 +85,55 @@ Eg: req.responseTime = new Date(Date.now()).toString();
 
 # app.use Callback 
 app.use("/random",(req,res,next)=>{
-    console.log("I am only for random)
+    console.log("I am only for randomcd )
 })
+// if we dont pass the path then app.use will be executed for each and every request but if we mention the path then it will be executed for that path only .
+-> We can write our authentication part in the middleware .
+-> For error 404 we can create a special middleware at the end of the page.
+// 404 
+app.use((req,res)=>{
+    res.send("Page not found");
+});
+// This way we can use middlewares to handle errors and create a error handling middlewares.
+
+# API token as query string
+-> Let's create a middleware for an api that checks if the access token was passed in the query string or not. 
+Eg: app.use("/api",(req,res,next)=>{
+    let{token} = req.query;
+    if (token === "giveaccess"){
+        next();
+    }
+    res.send("Access denied");
+});
+
+app.get("/api",(req,res)=>{
+    res.send("Data");
+});
+// so here if we pass the correct token value then only we will get the data else we will get access denied.
+
+# Multiple Middlewares 
+-> We can pass multiple middlewares in our app.get and app.post request .
+Eg: const checkToken = (req,res,next)=>{
+    let{token} = req.query;
+    if (token === "giveaccess"){
+        next();
+    }
+    res.send("Access denied");
+};
+
+app.get("/api", checkToken, (req,res)=>{
+    res.send("Data");
+});
+
+# Handling Errors 
+-> Express default error handler.
+-> Express by default has fixed path through which errors gets handled.
+Syntax: throw new Error("ERROR MESSAGE"); // Using this we will be able to throw the error message that we want to throw.
+Eg: const checkToken = (req,res,next)=>{
+    let{token} = req.query;
+    if (token === "giveaccess"){
+        next();
+    }
+    throw new Error("ACCESS DENIED");
+};
+// This will throw and error as ACCESS DENIED Whenever the token value is incorrect .
