@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const ExpressError = require("./ExpressError");
 
 //middleware -> response send
 
@@ -32,7 +33,7 @@ const checkToken = (req,res,next)=>{
     if (token === "giveaccess"){
         next();
     }
-    throw new Error("ACCESS DENIED");
+    throw new ExpressError(401,"ACCESS DENIED");
 };
 
 app.get("/api", checkToken, (req,res)=>{
@@ -47,10 +48,23 @@ app.get("/random",(req,res)=>{
     res.send("This is a random page");
 });
 
-//404 
-app.use((req,res)=>{
-    res.send("Page not found");
+app.get("/err",(req,res)=>{
+    abcd = abcd;
 });
+
+app.get("/admin",(req,res) =>{
+    throw new ExpressError(403,"Access to admin is Forbidden");
+});
+
+app.use((err,req,res,next)=>{
+    let {status = 500, message = "Some error occurred"} = err;
+    res.status(status).send(message);
+});
+
+//404 
+// app.use((req,res)=>{
+//     res.send("Page not found");
+// });
 
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`);

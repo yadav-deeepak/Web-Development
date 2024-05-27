@@ -137,3 +137,107 @@ Eg: const checkToken = (req,res,next)=>{
     throw new Error("ACCESS DENIED");
 };
 // This will throw and error as ACCESS DENIED Whenever the token value is incorrect .
+
+# Error Handlers 
+// Custom (How to create a custom error handling middleware.)
+-> Error handling middleware 
+   -> Define error-handling middleware functions in the same way as other middleware functions, except error-handling functions have four arguments instead of three: (err, req, res, next).
+   Eg: app.use((err,req,res,next)=>{
+           console.log("-----ERROR-----");
+           next(err);
+         });
+// If we want to pass the default express error then we have to pass it as a parameter to next(err).
+// If we don't pass this as parameter then the default express error will not be executed.
+
+# Custom error class 
+class ExpressError extends Error {
+    constructor(status,message) {
+        super();
+        this.status = status;
+        this.message = message;
+    }
+}
+// Default status and message 
+app.use((err,req,res,next) =>{
+    let {status = 500, message = "Some error occurred"} = err;
+    res.status(status).send(message);
+});
+// Here status and message are set to some default value so in case the value are not passed then this message will be generated.
+
+# Activity 
+app.get("/admin",(req,res) =>{
+    throw new ExpressError(403,"Access to admin is Forbidden");
+});
+// Here we have created a custom error handler which will send the error message with 403 code and message "Access to admin is Forbidden" whenever someone will try to access the admin route.
+
+# Handling Async Errors 
+// NEW -Show Route 
+1.> id -> doesn't exist
+app.get("/chats/:id", async(req,res,next)=>{
+    let {id} = req.params;
+    let chat = await Chat.findById(id);
+    if(!chat){
+         next(new ExpressError(404,"Chat not found or deleted"));
+    }
+    res.render("edit.ejs",{ chat });
+});
+// If we want to handle the asynchronous error then we have to pass the new ExpressError inside next() express will not by default call the next()
+
+2.> Validation error
+-> When rules and constraints that we have set are not followed then the validataion error occur.
+Eg: app.get("/chats",async (req,res,next)=>{
+    try{
+        let chats = await Chat.find();
+    // console.log(chats);
+    res.render("index.ejs",{chats});
+    }catch(err){
+        next(err);
+    }
+    
+});
+// For validation error we use try and catch to handle errors.
+
+# Using wrapAsync
+-> Writing try catch again and again genrates a  bulky code.
+-> For using try catch in a better way we use wrapAsync .
+// Create a fucntion wrapAsync that takes a function (fn) as a argument and returns fuction as a result.
+// The returned function has some parameters (req,res,next) and this function will execute the argument fucntion(fn) where we pass req,res,next as parameter with .catch(err) to catch the error.
+// In this way we will define the combination of three functions.
+Syntax: function wrapAsync(fn){
+    return function(req, res, next){
+        fn(req, res, next).catch((err)=> next(err));
+    };
+}
+Eg: function asyncWrap (fn){
+    return function (req, res, next){
+        fn(req, res, next).catch((err)=> next(err));
+    };
+}
+// Now we can remove try and catch and pass the function inside this asyncWrap to catch the error.
+app.get("/chats/:id",asyncWrap(async (req,res,next)=>{   let {id} = req.params;
+    let chat = await Chat.findById(id);
+    if(!chat){
+        next(new ExpressError(404,"Chat not found"));
+    }
+    res.render("edit.ejs",{ chat }); 
+}));
+// We pass the callback inside the asyncWrap().
+-> So we dont need to use try and catch we will use asyncWrap() to wrap the callback.\
+
+# Mongoose Errors 
+-> We can find the name of the errors using err.name
+Eg: const handleValidationErr = (err) =>{
+    console.log("This was a validation error .Please follow rules.");
+    console.dir(err.message);
+    return err;
+}
+
+app.use((err,req,res,next)=>{
+    console.log(err.name);
+    if(err.name === "ValidationError"){
+        err = handleValidationErr(err);
+    }
+    next(err);
+});
+// Here if the error occurred is a validation error then the handleValidationErr() will be executed that will handle the error.
+
