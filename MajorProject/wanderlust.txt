@@ -52,3 +52,19 @@ let {title, description, image, price, country, location} = req.body;
 
 # Footer 
 -> includes/footer.ejs
+
+# Form validations 
+-> When we enter data in the form ,the browser and/or the web server will check to see that the data is in the correct format and within the constraints set by the application.
+-> It can be of 2 types:
+// Client side - forntend se backend ko jo data bheja jaa rha h vo proper format me hona chahiye.
+// Server side - Database ke rules aur uske schema ke hisaab se data store ho rha h ki nahi aur error handling ye ensure krte h server side validation me.
+
+# Success and failure text
+-> Success text will be shown when we have filled all the fields correctly.
+-> Failure text will be shown when validation fails.
+
+# Server side error handling 
+## Custom Error Handler
+-> We will create a custom error handler to handle the errors (validation errors etc).
+
+# Custom wrapAsync 

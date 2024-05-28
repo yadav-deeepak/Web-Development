@@ -6,6 +6,7 @@ const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const wrapAsync = require("./utils/wrapAsync.js");
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -48,12 +49,11 @@ app.get("/listings/:id",async (req,res)=>{
 });
 
 // CREATE ROUTE
-app.post("/listings",async (req,res)=>{
-//    let {title, description, image, price, country, location} = req.body;
-   let newListing = new Listing(req.body.listing);
-   await newListing.save();
-   res.redirect("/listings"); 
-});
+app.post("/listings",wrapAsync(async (req,res,next)=>{
+        const newListing = new Listing(req.body.listing);
+        await newListing.save();
+        res.redirect("/listings");    
+}));
 
 //EDIT ROUTE 
 app.get("/listings/:id/edit",async (req, res)=>{
@@ -90,6 +90,10 @@ app.delete("/listings/:id", async (req,res)=> {
 //     console.log("Sample was saved");
 //     res.send("Successful testing");
 // });
+
+app.use((err, req, res, next)=>{
+    res.send("Something went wrong");
+});
 
 app.listen(port, ()=>{
     console.log(`Listening on port ${port}`);
