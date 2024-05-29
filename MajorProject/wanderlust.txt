@@ -68,3 +68,14 @@ let {title, description, image, price, country, location} = req.body;
 -> We will create a custom error handler to handle the errors (validation errors etc).
 
 # Custom wrapAsync 
+
+# Custom ExpressError
+
+//app.all("*",(req, res, next) =>{
+    next(new ExpressError(404,"Page not found"));
+});
+-> When none of the above routes matches then this route will be executed.
+-> This route will generate error page not found for the routes that we have not been created.
+
+# Error.ejs
+-> We want that whenever error occurs it should be displayed to the user in a good way for that we will create a error.ejs page.
