@@ -1,0 +1,22 @@
+# React 
+-> It is a JS library for creating UI 
+-> react.dev is the official page of react
+-> React lets you build user interfaces out of individual pieces called components. Create your own React components like Thumbnail, LikeButton, and Video. Then combine them into entire screens, pages, and apps.
+-> A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
+-> React is about building a component once and then reusing it whenever it is needed.
+-> In react we write code in jsx format.
+-> JSX is a way of writing html inside our JS .
+
+# JSX 
+-> JavaScript Extension syntax 
+-> It lets us write HTML directly inside JS .
+-> It is not a pure JS code when we write JSX code in react it gets internally converted/transpiled into JS and it is done by Babel.
+->  JSX----->Babel------>JS
+-> Bable is a JS compiler.
+
+# Set up local Environment 
+-> Create-React-App v/s Vite 
+syntax: npm create vite@latest 
+        npm run dev  // to start the server
+
+# Understanding our App

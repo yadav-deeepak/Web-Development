@@ -507,3 +507,10 @@ app.delete("/chats/:id",async (req,res)=>{
     console.log(deletedChat);
     res.redirect("/chats");
 });
+
+# Mongo Relationships 
+## Relationships 
+//SQL (via foreign keys)
+-> one to one 
+-> one to many 
+-> many to many 
