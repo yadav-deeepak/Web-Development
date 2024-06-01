@@ -20,3 +20,146 @@ syntax: npm create vite@latest
         npm run dev  // to start the server
 
 # Understanding our App
+-> src folder : we write our main logic inside the source folder.
+// Inside src folder there is a assets folder which is also empty.
+// App.jsx : app is a component we get to see app component inside every react app. Home page is our app component.
+// App.css : this has the css written for our app.jsx file.
+-> index.html : It is our main page that opens when we start our react app.
+// Inside this html file there is a div called root our whole component get rendered inside this root element.
+// There is a script tag that has the src as main.jsx and inside this file we are accesssing the root div and rendering our app component .
+
+## Flow is like this : 
+-> We have a index.html file that has a root div which treats main.jsx as a script main.jsx work is to render the app component inside the root div.
+-> Where app is our component that comes from app.jsx.
+-> These three are only our main files .The main work is done using these three files.
+
+# Re-write our app 
+import "./App.css";
+
+function App() {
+        return <h1>Hello world!</h1>
+}
+
+export default App;
+
+# Our 1st component 
+-> Component is a reusable & independent piece of code. 
+-> The highest level of component is our app component. Other components are embedded inside this app component.
+-> Syntax: function CommponentName() {
+        return(html element that we want to return );
+}
+## We can only return 1 html element .
+// Creating a component
+function Title() {
+        return(
+                <h1>Hello world!</h1>
+        );
+}
+
+-> For rendering a component we write it like a html tag.
+// Rendering a component 
+<Title></Title>  OR  <Title/>
+
+// We can return multiple elements by grouping them inside a div.
+Eg:
+function App() {
+   return(
+    <div>
+      <h1>This is my app component</h1>
+      <p>Inside app component we have : </p>
+      <Title></Title>
+    </div>
+   )
+}
+
+# NOTE : Generally we don't write all the components inside the app.jsx each component has its own file .
+Eg: Title.jsx file will have the title component . It is created inside the src folder.
+-> We export Title.jsx component and import it to use in our App.jsx
+
+# Import - Export 
+-> In summary named exports are useful when you want to export multiple values and import them with their specific names, while default exports are handy for exporting a single value and giving it a custom name when importing .
+-> The choice between the two depends on the structure and requirements of your codebase.
+-> Import 
+// import Title from "./Title.jsx";
+-> Default export 
+// export default Title;
+-> Named Export 
+// export { Title };
+// import { Title } from "./Title.jsx";
+
+# Writing Markup in JSX 
+-> Return a single root element 
+   // To return multiple elements from a component wrap them with a single parent tag.
+   Eg:
+     function App() {
+         return(
+            <div>
+                <h1>This is my app component</h1>
+                <p>Inside app component we have : </p>
+               <Title></Title>
+           </div>
+   )
+}
+
+-> Close all the tags
+
+-> camelCase most of the things 
+   // Attributes name are written in camelCase 
+   Eg: className , backgroundColor
+
+# React Fragments 
+-> Fragments let you group a list of children without adding extra nodes to the DOM .
+Eg: 
+function App() {
+        return(
+                <>
+                <Title></Title>
+                <Title></Title>
+                <Title></Title>
+                </>
+        );
+}
+
+# JSX with curly braces 
+-> In JSX wherever we write any code inside curly braces that code is treated as pure JS.
+-> Curly braces opens a small window to JS.
+function Title() {
+        return <p> 2*2 = {2*2}</p>;
+}
+
+function Title() {
+        let msg = "Hello world!";
+        return <p>Message says {msg}</p>;
+}
+
+# Sturcturing Components 
+-> First we have to break down a website into its smallest component and then we build website from the smallest componet to the full website by building components.
+-> For example suppose we have a Product component we have 3 Product then we will group them inside a ProductTab component and then use it in our app.jsx
+-> This increase the reusability.
+
+# Style Components 
+-> There are multiple ways to style a component .
+-> There are various styling tools that we can use we will talk about it later. 
+-> We can add the styling directly into the index.css file or we can seperately write the css for each component and then use it by importing.
+-> Like App component ki styling App.css me likhi jaayegi Product component ki product.css me likhi jaayegi. We prefer using this method of styling.
+-> The name of the css file is same as the component name .
+-> The className of the component should also be same as component name.
+import "./Product.css";
+
+export default function Product() {
+        return(
+                <div className="Product">
+                   <h4>Product Title</h4>
+                   <p>Product Description</p>
+                </div>
+        );
+}
+
+// Product.css 
+.Product{
+        border: 1px solid black;
+        margin-bottom: 5px;
+        border-radius: 14px;
+}
+
+NOTE: Webpack makes the import export functionality possible in React.
