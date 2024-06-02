@@ -511,6 +511,53 @@ app.delete("/chats/:id",async (req,res)=>{
 # Mongo Relationships 
 ## Relationships 
 //SQL (via foreign keys)
--> one to one 
--> one to many 
--> many to many 
+-> one to one(1x1) 
+   // Single data is connected to single data in the other table.
+
+-> one to many (1xn)
+   // When a single data is related to multiple data in the other table then it has one to many relationship.
+   Eg: users and post 
+   -> One user can be related to many posts.
+
+-> many to many (nxn)
+
+# Mongo realtionships 
+-> One to many  / Approach 1 (one to few)
+Store the child document inside permanent
+Eg: 
+{
+  username: 'Sherlockholmes',       
+  addresses: [
+    {
+      location: '221B Baker street',
+      city: 'London',
+      _id: new ObjectId('665c84605d6
+bb473197a4059')
+    },
+    {
+      location: 'P32 Wallstreet',   
+      city: 'London',
+      _id: new ObjectId('665c84605d6
+bb473197a405a')
+    }
+  ],
+  _id: new ObjectId('665c84605d6bb47
+3197a4058'),
+  __v: 0
+}
+// Here the user sherlockholmes have multiple addresses with location and city as a parameter.
+// MongoDB has created id for both the addresses .
+// If we dont want id to be created then we can set the _id: false while creating the schema.
+
+/ Approach 2
+-> Store a reference to the child document inside parent. Basically we are storing the id of the child document in the parent document.
+Eg: 
+{
+   id: ObjectId('665c84605d6bb473197a4058'),
+   name: "Rahul",
+   orders: [
+      ObjectId('665c84605d6bb473197a4059'),
+      ObjectId('665c84605d6bb473197a405a'),
+   ],
+   __v: 0
+}
