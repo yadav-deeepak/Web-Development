@@ -163,3 +163,19 @@ export default function Product() {
 }
 
 NOTE: Webpack makes the import export functionality possible in React.
+
+# React Props 
+-> Props are the information that you pass to a JSX tag.
+Eg: <Product title="phone" price="30k" />
+    <Product title="laptop" price={40000}/>
+// If we want to pass number then we have to put it inside {} for string we will put it inside "" .
+
+    export default function Product({ title, price =1}) {
+        return(
+                <div className="Product">
+                   <h4>{title}</h4>
+                   <p>{price}</p>
+                </div>
+        )
+    }
+// We can also asign the default value to the parameter .
