@@ -179,3 +179,10 @@ Eg: <Product title="phone" price="30k" />
         )
     }
 // We can also asign the default value to the parameter .
+
+# Passing arrays to props 
+-> features={["fast", "reliable"]} //array
+-> features={{ a: "fast", b: "reliable" }} //object
+// How to access 
+<p>{features}</p> //accessing array
+<p>{features2.b}</p>  //accessing object

@@ -1,11 +1,9 @@
 import Product from "./Product";
 
-function ProductTab() {
+function ProductTab() { 
     return(
         <>
-        <Product title="iPhone" price="50k"></Product>
-        <Product title="Laptop" price="0k"></Product>
-        <Product title="Pen" price="10"></Product>
+        <Product title="iPhone" price="50k" features={["hi-tech", "durable", "fast"]} features2={{ a: "hi-tech", b: "durable", c: "fast"}}></Product>
         </>
     );
 }
