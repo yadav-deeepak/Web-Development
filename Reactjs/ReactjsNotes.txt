@@ -186,3 +186,34 @@ Eg: <Product title="phone" price="30k" />
 // How to access 
 <p>{features}</p> //accessing array
 <p>{features2.b}</p>  //accessing object
+
+# Rendering Arrays 
+// Approach 1 
+let options =[<li>"hi-tech"</li>, <li>"durable"</li>, <li>"fast"</li>];
+
+<Product title="iPhone" price="50k" features={options} features2={{ a: "hi-tech", b: "durable", c: "fast"}}></Product>
+-> In this approach we will create each element as a list item in an array and then we send it as props.
+
+// Approach 2 (mostly used)
+
+    return(
+        <div className="Product">
+            <h3>{title}</h3>
+            <h5>Price: {price}</h5>
+            <p>{ features.map((feature) => <li>{feature}</li>)}</p>
+            <p>{features2.b}</p>
+        </div>
+    );
+-> Another way is that we map each feature and make it a list item like above.
+
+# Conditionals 
+-> Adding elements on the basis of some Conditionals
+Eg:
+   {price >= 10000 ? <p>Discount : 5%</p> : null}
+   // This will create the <P> tag for only the component whose price is >=10000 .
+
+   // We can also write like this if the condition will be true then only the discount will be given
+   {price >= 10000 && <p>Discount : 5%</p>}
+
+# Dynamic Component Styling 
+-> When we want to add some styling based on the condition then it is known as dynamic component styling and conditional component styling as well.
