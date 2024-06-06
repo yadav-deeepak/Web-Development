@@ -217,3 +217,16 @@ Eg:
 
 # Dynamic Component Styling 
 -> When we want to add some styling based on the condition then it is known as dynamic component styling and conditional component styling as well.
+Eg: 
+let isDiscount = price > 30000;
+    let styles = {backgroundColor : isDiscount ? "yellow" : ""};
+    return(
+        <div className="Product" style={styles}>
+            <h3>{title}</h3>
+            <h5>Price: {price}</h5>
+            {isDiscount ? <p>"Discount of 5%"</p> : null}
+        </div>
+    );
+
+# Install React Developer Tools 
+-> React Developer tools are helpfull when you are developing with the react add the chrome extension of react developer tools .
