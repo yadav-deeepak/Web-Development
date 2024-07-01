@@ -20,21 +20,32 @@ const customerSchema = new Schema({
     orders: [
         {
             type: Schema.Types.ObjectId,
-            ref: "Order"
-        }
-    ]
+            ref: "Order",
+        },
+    ],
 });
 
-const Customer = mongoose.model("Customer",customerSchema);
+const Order = mongoose.model("Order",orderSchema);
+const Customer = mongoose.model("Customer", customerSchema);
 
-const addCustomer = async() =>{
+const addCustomer = async () => {
     let cust1 = new Customer({
         name: "Viper Ankur",
     });
-    let order1 = await Order.find
-}
 
-const Order = mongoose.model("Order",orderSchema);
+    let order1 = await Order.findOne({item: "Samosa"});
+    let order2 = await Order.findOne({item: "Chips"});
+
+    cust1.orders.push(order1);
+    cust1.orders.push(order2);
+
+    let result = await cust1.save();
+    console.log(result);
+};
+
+addCustomer();
+
+
 
 // const addOrders =async () =>{
 //     let res = await Order.insertMany([

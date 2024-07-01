@@ -230,3 +230,17 @@ let isDiscount = price > 30000;
 
 # Install React Developer Tools 
 -> React Developer tools are helpfull when you are developing with the react add the chrome extension of react developer tools .
+
+# Event in React 
+## Handling click events 
+function doSomething(){
+        console.log("Button was clicked");
+}
+
+export default function Button(){
+        retrun (
+                <div>
+                <button onClick={doSomething}>Click Me!</button>
+                </div>
+        );
+}
