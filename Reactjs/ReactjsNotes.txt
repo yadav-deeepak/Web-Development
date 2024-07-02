@@ -244,3 +244,33 @@ export default function Button(){
                 </div>
         );
 }
+
+## Handling non-clicking events
+function  handleHover(){
+        console.log("hover");
+}
+
+export default function Button(){
+        return (
+                <div>
+                   <button onMouseOver={handleHover}>Hover over me!</button>
+                </div>
+        );
+}
+
+# Event Object 
+-> We can access the event object in handler 
+Eg:
+function handleFormSubmit(event){
+        event.preventDefault();
+        console.log("Form was submitted");
+}
+
+export default function Form(){
+        return (
+                <form onSubmit={handleFormSubmit}>
+                <button>Submit</button>
+                </form>
+        );
+}
+// preventDefault() prevents us from the default behaviour in forms.
