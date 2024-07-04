@@ -286,7 +286,51 @@ export default function Form(){
 # useState()
 -> useState is a react hook that lets you add a state variable to your component.
 Eg: const [state, setState] = useState(intialState);
+// Here setState is an updater function
 
 useState returns an array with exactly two values:
 1. The current state.During the first render,it will match the initialState you have passed .
 2. The set function that lets you update the state to a different value and trigger a re-render.
+
+# Closure 
+-> A closure is a feature in javascript wherre an inner function haas access to the outer(enclosing) function's variables.
+Eg: 
+function outer(){
+        var b = 10;
+        function inner(){
+                var a =20;
+                console.log(a+b);
+        }
+        return inner;
+}
+// In JS once a function completes its execution any variables that were defined inside the function scope cease to exist.
+
+# How does re-render works?
+-> As soon as the setState function is called whole component is re-rendered.
+
+# Callback in updater function
+## How to change state when it depends on the current value
+-> Updater function are async function so we use callback when we want to use it more than once .
+Eg:
+// We use this when the new/updated value depends on the previous/old value.
+export default function Counter(){
+    let [count, setCount] = useState(0);
+
+    let incCount = () =>{
+        setCount((currCount)=>{
+            return currCount + 1;
+        });
+        setCount((currCount)=>{
+            return currCount + 1;
+        });
+        console.log(count);
+    };
+}
+// This will increase the counter by 2 because we have use the callback for the updater function. 
+// If we don't use callback then the count will increase by 1 only once the increase count button is clicked. 
+// when it doesn't depend on the any value depends on any random value.Then we don't use callback
+Eg: setCount(35);
+
+# More about state 
+-> React re-renders a component only when it detects a change in the value of the state.
+-> We can pass function as initialState to the useState()
