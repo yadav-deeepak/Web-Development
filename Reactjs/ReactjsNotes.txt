@@ -334,3 +334,7 @@ Eg: setCount(35);
 # More about state 
 -> React re-renders a component only when it detects a change in the value of the state.
 -> We can pass function as initialState to the useState()
+
+# Object and State
+-> To create an object we have to spread it in order to pass its updated value .
+-> When we spread it copy of the object with the updated value is send which help them to detect the change in the state hence it re-renders the component.
