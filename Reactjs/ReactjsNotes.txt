@@ -339,5 +339,7 @@ Eg: setCount(35);
 -> To create an object we have to spread it in order to pass its updated value .
 -> When we spread it copy of the object with the updated value is send which help them to detect the change in the state hence it re-renders the component.
 
-# Array & state
-->
+# Lottery Game
+-> We are given lottery tickets with a 3 digit number 
+-> The number is generated randomly 
+-> If the sum of all digits is 15 , we win the lottery and get the prize.
