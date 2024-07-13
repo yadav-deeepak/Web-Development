@@ -343,3 +343,7 @@ Eg: setCount(35);
 -> We are given lottery tickets with a 3 digit number 
 -> The number is generated randomly 
 -> If the sum of all digits is 15 , we win the lottery and get the prize.
+
+# Changes to lottery game 
+-> Make the lottery tickets of N digit number 
+-> The winning sum could be any feasible number.
