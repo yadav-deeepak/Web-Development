@@ -347,3 +347,30 @@ Eg: setCount(35);
 # Changes to lottery game 
 -> Make the lottery tickets of N digit number 
 -> The winning sum could be any feasible number.
+
+-> So we are going to create state variable ticket in the lottery component and then we pass it down the heirarchy to use it   in ticket and ticketNum component.
+
+# Lifting state up 
+-> In this we send our state up in heirarchy so high that all our requirements are fulfilled.
+
+# Component types 
+-> We have basically two types of components 
+1.> Logical components 
+-> Also known as smart components.
+-> Have state variable.
+-> Change in state takes place.
+
+2.> Presentational components 
+-> Also known as dumb components.
+-> Its prime goal is to design UI.
+-> Have no state variable.
+
+# Ticket component 
+## TicketNum 
+   Props: num 
+   State: none 
+   Events: none
+
+## Ticket 
+   Props: ticket[] of size n 
+   State: none
