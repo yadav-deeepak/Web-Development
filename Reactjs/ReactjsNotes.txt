@@ -371,6 +371,21 @@ Eg: setCount(35);
    State: none 
    Events: none
 
-## Ticket 
+## Ticket component
    Props: ticket[] of size n 
    State: none
+   Events: none
+
+## Lottery component(Logical component)
+   Props: n,winningSum 
+   State: ticket[]
+   Events: buyTicket()
+
+# Functions as props 
+## JS functions are 1st class objects 
+-> This means they can be passed to a function as argument, returned from it and assigned to a variable. 
+Eg:  let winCondition = (ticket) => {
+    return sum(ticket) === 15;
+  }
+
+  <Lottery n={3}  winCondition={winCondition}></Lottery>
