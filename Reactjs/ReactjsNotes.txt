@@ -389,3 +389,18 @@ Eg:  let winCondition = (ticket) => {
   }
 
   <Lottery n={3}  winCondition={winCondition}></Lottery>
+
+# Forms in react 
+-> The standard way with forms is to use controlled components.So we make react state to be the "single source of truth".
+
+//React old docs
+-> In HTML form elements such as <input>,<textarea> and <select> typically maintain their own state and update it based on user input. In react mutable stae is typically kept in the state property of components, and only updated with setState().
+-> We can combine the wo by making the react state be the "single source of truth". Then the react component that renders a form also controls what happens in that form on subseqent user input. An input form element whose value is controlled by react in this way is called a "controlled component".
+
+# Form labels
+<form>
+        <label htmlFor="username">Fullname</label>
+        <input placeholder="enter full name" type="text" value={fullName} onChange={handleNameChange} id="username"></input>
+        <button>Submit</button>
+</form>
+-> Here we use htlmFor and write the id of the element for which we want that label to be used and then we will get the label.
