@@ -404,3 +404,25 @@ Eg:  let winCondition = (ticket) => {
         <button>Submit</button>
 </form>
 -> Here we use htlmFor and write the id of the element for which we want that label to be used and then we will get the label.
+
+# Hndling multiple inputs 
+-> Whenever we have multiple inputs we use a common handler[handleInputChange()] to handle all the inputs.
+-> We create a common handleInputChange() for all elements.
+event.target.name   //changed field 
+event.target.value  //new value of the field 
+Eg: 
+let [formData, setFormData] = useState({
+        fullName: "",
+        username: "",
+        password: ""
+    }); //State Variable
+
+
+let handleInputChange = (event) =>{
+        let fieldName = event.target.name;
+        let newValue = event.target.value;
+        console.log(newValue);
+        setFormData((currData) => {
+            return {...currData,[fieldName]: newValue};
+        });
+      };
