@@ -427,5 +427,8 @@ let handleInputChange = (event) =>{
         });
       };
 
-# Comments form 
--> 
+# Form Validatios
+-> Forms have default validation that is done by default by the browser.
+-> Formik : it is used for the form validation 
+// npm install formik 
+->  
