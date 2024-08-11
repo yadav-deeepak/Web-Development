@@ -431,4 +431,30 @@ let handleInputChange = (event) =>{
 -> Forms have default validation that is done by default by the browser.
 -> Formik : it is used for the form validation 
 // npm install formik 
-->  
+
+# useEffect()
+-> useEffect(setUp, dependencies?) //dependencies is optional.
+-> The effect hook lets you perform side effects in function components.
+-> Data fetching, setting up a subscription, and manually changing the DOM in react components are all examples of side effects.
+Eg: 
+import { useState, useEffect } from "react";
+export default function Counter() {
+        let [count, setCount] = useState(0);
+        const incCount = () =>{
+                setCount((currCount) => currCount +1);
+        };
+
+        useEffect(function sideEffect(){
+                console.log("This is the side effect");
+        });
+
+        return (
+                <div>
+                 <h1>Count= {count}</h1>
+                 <button onClick={incCount}>+1</button>
+                </div>
+        );
+}
+
+-> So whenever the counter component is re rendered then the useEffect function sideEffect will be executed. 
+-> 
