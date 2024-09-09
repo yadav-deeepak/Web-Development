@@ -431,7 +431,7 @@ let handleInputChange = (event) =>{
 -> Forms have default validation that is done by default by the browser.
 -> Formik : it is used for the form validation 
 // npm install formik 
-
+ 
 # useEffect()
 -> useEffect(setUp, dependencies?) //dependencies is optional.
 -> The effect hook lets you perform side effects in function components.
@@ -457,4 +457,32 @@ export default function Counter() {
 }
 
 -> So whenever the counter component is re rendered then the useEffect function sideEffect will be executed. 
--> 
+
+# Dependencies 
+-> Dependencies are nothing but state variables.
+Eg: 
+ let [countx, setCountx] = useState(0);
+    let [county, setCounty] = useState(0);
+
+    let incCountx = () =>{
+        setCountx((currCount) => currCount +1);
+    };
+
+    let incCounty = () =>{
+        setCounty((currCount) => currCount +1);
+    };
+
+useEffect(function sideEffect(){
+        console.log("This is the side effect");
+    },[countx]);
+    // here the sideEffect will now only be executed when the countx is changed.
+-> In dependencies we have two cases :
+Case 1:  In this we pass array of state variables
+Eg: [s1,s2,s3];
+
+Case 2: In this we pass an empty array
+Eg: [ ] // This means that when our component is rendered first time then only sideEffect will occur.
+// Re-render ke case me humara function execute nahi krr pata.
+
+# Use Cases 
+-> API Calls - Asynchronous Operations
