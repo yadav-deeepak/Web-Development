@@ -486,3 +486,6 @@ Eg: [ ] // This means that when our component is rendered first time then only s
 
 # Use Cases 
 -> API Calls - Asynchronous Operations
+study about it in Joker.jsx
+-> In this we have learnt how to practically use useEffect and how to use API fetch in react.
+
