@@ -1,0 +1,9 @@
+# Material UI 
+-> Library of react UI components.
+-> It includes a comprehensive collection of prebuilt components that are ready for use in production right out of the box and features a suite of customization options that make it easy to implement your own custom design system on top of our components.
+
+# Building a weather widget (using react and material UI)
+-> Search box 
+-> Search button 
+-> Using weather API's
+-> Info box (displays all the related info about weather)
