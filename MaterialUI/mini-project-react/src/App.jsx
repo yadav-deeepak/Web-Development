@@ -1,11 +1,10 @@
-import SearchBox from './SearchBox';
-import TextField from '@mui/material/TextField';
-import './App.css'
+import WeatherApp from './WeatherApp';
+import './App.css';
 
 function App() {
   return (
     <>
-     <SearchBox></SearchBox>
+     <WeatherApp></WeatherApp>
     </>
   );
 }
