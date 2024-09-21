@@ -7,3 +7,5 @@
 -> Search button 
 -> Using weather API's
 -> Info box (displays all the related info about weather)
+
+## To know more about material UI read its documentation.

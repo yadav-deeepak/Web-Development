@@ -1,0 +1,38 @@
+# Tailwind CSS
+-> A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+-> Utility first means the framework's main focus is on providing utility classes.
+
+# How to use Tailwind CSS 
+//Method 1 : Play CDN 
+-> Add the Play CDN script to your HTML
+   ->Add the Play CDN script tag to the <head> of your HTML file, and start using Tailwind’s utility classes to style your content. 
+   // Syntax:  <script src="https://cdn.tailwindcss.com"></script>
+   <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+  -> But using this method is not good for development .
+
+//Method 2 : Tailwind CLI 
+-> Using PostCSS 
+   -> Installing Tailwind CSS as a PostCSS plugin is the most seamless way to integrate it with build tools like webpack, Rollup, Vite, and Parcel.
+   Terminal:
+   npm install -D tailwindcss postcss autoprefixer
+   npx tailwindcss init -p
+
+   -> Add the paths to all of your template files in your tailwind.config.js file.
+   content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],// we add path in tailwind.config.js 
+  // "*" it means that we want to use tailwind for our entier process.
+
+  ->Add the Tailwind directives to your CSS : Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.
+  syntax : Include these three in the css file.
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  -> Do 1 more change in our package.json add this
+  "scripts": {
+    "start": "vite"
+  }, // this means that whenever we start our server then it should start using vite.
