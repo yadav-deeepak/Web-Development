@@ -36,3 +36,21 @@
   "scripts": {
     "start": "vite"
   }, // this means that whenever we start our server then it should start using vite.
+
+# Breakpoints 
+-> There are five breakpoints by default, inspired by common device resolutions:
+
+Breakpoint prefix 	Minimum width	   CSS
+sm	640px	@media (min-width: 640px) { ... }
+md	768px	@media (min-width: 768px) { ... }
+lg	1024px	@media (min-width: 1024px) { ... }
+xl	1280px	@media (min-width: 1280px) { ... }
+2xl	1536px	@media (min-width: 1536px) { ... }
+
+# Apply Directives 
+-> Use @apply to inline any existing utility classes inot your own custom CSS. 
+-> This helps in the reduction of the repetition of the code.
+Eg: .box{
+    @apply bg-purple-500 text-white m-4 border-2 rounded;
+}
+// Here box class contains all the properties that we want to apply wherever we use box class
