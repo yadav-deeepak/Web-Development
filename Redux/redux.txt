@@ -1,0 +1,12 @@
+# Redux 
+-> State mmanagement library for JS apps
+-> Redux is built for larger, more complex applications.
+-> Redux toolkit is the official recommendation of writing redux code.
+
+# Store 
+-> It is the central library that stores all the state variables.
+
+# Reducers 
+-> Functions use to mutate is the state is called as reducers.
+-> We pass the state and action as argument.
+-> Action is like a event that is going to be performed when we performed a certain action.
