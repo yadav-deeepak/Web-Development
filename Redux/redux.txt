@@ -14,3 +14,20 @@
 
 # Slice 
 -> Collection of redux reducer logic and actions for a single feature together in a single file.
+
+# Setup project 
+-> Store 
+-> Actions 
+-> Reducers
+
+# Todo App 
+// Designing the store 
+todo-> id, task, isDone 
+
+// Action
+-> Add a Todo, Mark as Done, Delete a Todo 
+
+{
+    type:"ADD_TODO",
+    payload:"writecode",
+}
